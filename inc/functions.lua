@@ -4,7 +4,7 @@
 #─████████████─
 #──▀████████▀──
 #─────▀██▀─────
-#┊Pearlin ‿ @Ooko0
+#┊aian917 ‿ @Ooko0
 #┊@SA3ED ‿ @TH3SS
 #---------------------------------------------------------------------
 ]]
@@ -441,20 +441,20 @@ end
 function UpdateSource(msg,edit)
 if edit then EditMsg(msg.chat_id_,msg.id_,'10% - |█          |') end
 if edit then EditMsg(msg.chat_id_,msg.id_,'20% - |███         |') end
-download_file('https://raw.githubusercontent.com/UUIYY/Pearlin/master/inc/Run.lua','./inc/Run.lua')
+download_file('https://raw.githubusercontent.com/UUIYY/aian917/master/inc/Run.lua','./inc/Run.lua')
 if edit then EditMsg(msg.chat_id_,msg.id_,'40% - |█████       |') end
-download_file('https://raw.githubusercontent.com/UUIYY/Pearlin/master/inc/locks.lua','./inc/locks.lua')
+download_file('https://raw.githubusercontent.com/UUIYY/aian917/master/inc/locks.lua','./inc/locks.lua')
 if edit then EditMsg(msg.chat_id_,msg.id_,'60% - |███████     |') end
-download_file('https://raw.githubusercontent.com/UUIYY/Pearlin/master/inc/Script.lua','./inc/Script.lua')
+download_file('https://raw.githubusercontent.com/UUIYY/aian917/master/inc/Script.lua','./inc/Script.lua')
 if edit then EditMsg(msg.chat_id_,msg.id_,'80% - |█████████   |') end
-download_file('https://raw.githubusercontent.com/UUIYY/Pearlin/master/inc/functions.lua','./inc/functions.lua')
-if edit then EditMsg(msg.chat_id_,msg.id_,'100% - |█████████████|\n\n🔝*-›* تم تحديث السورس الى اصدار *v'..redis:get(Pearlin..":VERSION")..'*\n📟*-›* تم اعاده تشغيل السورس بنجاح') end
+download_file('https://raw.githubusercontent.com/UUIYY/aian917/master/inc/functions.lua','./inc/functions.lua')
+if edit then EditMsg(msg.chat_id_,msg.id_,'100% - |█████████████|\n\n🔝*-›* تم تحديث السورس الى اصدار *v'..redis:get(aian917..":VERSION")..'*\n📟*-›* تم اعاده تشغيل السورس بنجاح') end
 if edit then dofile("./inc/Run.lua") end
 print("Update Source And Reload ~ ./inc/Run.lua")
 
 end
 ----------------------{ Get Name Bot }-----------------------------
-Bot_Name = redis:get(Pearlin..":NameBot:") or "نيزك"
+Bot_Name = redis:get(aian917..":NameBot:") or "نيزك"
 
 
 function GetType(ChatID) 
@@ -757,7 +757,7 @@ function KlmatMmno3(text)
 resq = false
 local listFshars = redis:get("UpdatWordsFshar")
 if not listFshars then
-local Fshar_Word , res = https.request('https://Pearlin.tk/Words_Fshars.txt')
+local Fshar_Word , res = https.request('https://aian917.tk/Words_Fshars.txt')
 if res ~= 200 then Fshar_Word = "\n" end
 redis:setex("UpdatWordsFshar",3600,Fshar_Word)
 print(Fshar_Word)
@@ -778,7 +778,7 @@ end
 function KlmatMmno3(text)
 resq = false
 if not Fshar_Word or not redis:get("UpdatWordsFshar") then
-Fshar_Word , res = https.request('https://Pearlin.tk/Words_Fshars.txt')
+Fshar_Word , res = https.request('https://aian917.tk/Words_Fshars.txt')
 if res ~= 200 then Fshar_Word = "\n" end
 redis:setex("UpdatWordsFshar",3600,true)
 end
@@ -819,17 +819,17 @@ if UserID == our_id then
 var = 'هذا البوت' 
 elseif  UserID == SUDO_ID then
 var = 'Legend️' 
-elseif redis:sismember(Pearlin..':SUDO_BOT:',UserID) then
+elseif redis:sismember(aian917..':SUDO_BOT:',UserID) then
 var = 'Staff' 
-elseif redis:sismember(Pearlin..':MONSHA_Group:'..ChatID,UserID) then
+elseif redis:sismember(aian917..':MONSHA_Group:'..ChatID,UserID) then
 var = 'المنشئ اساسي' 
-elseif redis:sismember(Pearlin..':MONSHA_BOT:'..ChatID,UserID) then
+elseif redis:sismember(aian917..':MONSHA_BOT:'..ChatID,UserID) then
 var = 'المنشئ' 
-elseif redis:sismember(Pearlin..'owners:'..ChatID,UserID) then
+elseif redis:sismember(aian917..'owners:'..ChatID,UserID) then
 var = 'مدير' 
-elseif redis:sismember(Pearlin..'admins:'..ChatID,UserID) then
+elseif redis:sismember(aian917..'admins:'..ChatID,UserID) then
 var = 'ادمن' 
-elseif redis:sismember(Pearlin..'whitelist:'..ChatID,UserID) then
+elseif redis:sismember(aian917..'whitelist:'..ChatID,UserID) then
 var = 'مميز' 
 else
 var = 'عضو️' 
@@ -838,10 +838,10 @@ return var
 end
 
 function convert_Klmat(msg,data,Replay,MD)
-local edited = (redis:get(Pearlin..':edited:'..msg.chat_id_..':'..msg.sender_user_id_) or 0)
-local points = redis:get(Pearlin..':User_Points:'..msg.chat_id_..msg.sender_user_id_) or 0
+local edited = (redis:get(aian917..':edited:'..msg.chat_id_..':'..msg.sender_user_id_) or 0)
+local points = redis:get(aian917..':User_Points:'..msg.chat_id_..msg.sender_user_id_) or 0
 local NameUser = ResolveName(data)
-local Emsgs = redis:get(Pearlin..'msgs:'..msg.sender_user_id_..':'..msg.chat_id_) or 1
+local Emsgs = redis:get(aian917..'msgs:'..msg.sender_user_id_..':'..msg.chat_id_) or 1
 if data.username_ then UserNameID = "@"..data.username_ else UserNameID = "لا يوجد" end  
 if Replay then
 Replay = Replay:gsub("{الاسم}",NameUser)
@@ -852,7 +852,7 @@ Replay = Replay:gsub("{التفاعل}",Get_Ttl(Emsgs))
 Replay = Replay:gsub("{الرسائل}",Emsgs)
 Replay = Replay:gsub("{التعديل}",edited)
 Replay = Replay:gsub("{النقاط}",points)
-Replay = Replay:gsub("{البوت}",redis:get(Pearlin..':NameBot:'))
+Replay = Replay:gsub("{البوت}",redis:get(aian917..':NameBot:'))
 Replay = Replay:gsub("{المطور}",SUDO_USER)
 else
 Replay =""
@@ -867,23 +867,23 @@ end
 
 function SaveNumMsg(msg)
 if msg.edited then
-redis:incr(Pearlin..':edited:'..msg.chat_id_..':'..msg.sender_user_id_)
+redis:incr(aian917..':edited:'..msg.chat_id_..':'..msg.sender_user_id_)
 elseif msg.text and not msg.forward_info_ then
-redis:incr(Pearlin..'msgs:'..msg.sender_user_id_..':'..msg.chat_id_)
+redis:incr(aian917..'msgs:'..msg.sender_user_id_..':'..msg.chat_id_)
 elseif msg.content_.ID == "MessageChatAddMembers" then 
-redis:incr(Pearlin..':adduser:'..msg.chat_id_..':'..msg.sender_user_id_)
+redis:incr(aian917..':adduser:'..msg.chat_id_..':'..msg.sender_user_id_)
 elseif msg.content_.ID == "MessagePhoto" then
-redis:incr(Pearlin..':photo:'..msg.chat_id_..':'..msg.sender_user_id_)
+redis:incr(aian917..':photo:'..msg.chat_id_..':'..msg.sender_user_id_)
 elseif msg.content_.ID == "MessageSticker" then
-redis:incr(Pearlin..':sticker:'..msg.chat_id_..':'..msg.sender_user_id_)
+redis:incr(aian917..':sticker:'..msg.chat_id_..':'..msg.sender_user_id_)
 elseif msg.content_.ID == "MessageVoice" then
-redis:incr(Pearlin..':voice:'..msg.chat_id_..':'..msg.sender_user_id_)
+redis:incr(aian917..':voice:'..msg.chat_id_..':'..msg.sender_user_id_)
 elseif msg.content_.ID == "MessageAudio" then
-redis:incr(Pearlin..':audio:'..msg.chat_id_..':'..msg.sender_user_id_)
+redis:incr(aian917..':audio:'..msg.chat_id_..':'..msg.sender_user_id_)
 elseif msg.content_.ID == "MessageVideo" then
-redis:incr(Pearlin..':video:'..msg.chat_id_..':'..msg.sender_user_id_)
+redis:incr(aian917..':video:'..msg.chat_id_..':'..msg.sender_user_id_)
 elseif msg.content_.ID == "MessageAnimation" then
-redis:incr(Pearlin..':animation:'..msg.chat_id_..':'..msg.sender_user_id_)
+redis:incr(aian917..':animation:'..msg.chat_id_..':'..msg.sender_user_id_)
 end
 end
 
@@ -903,16 +903,16 @@ end
 
 function TagAll(msg)
 message = "قائمه التاكـ : \n\n"
-local monshaas = redis:smembers(Pearlin..':MONSHA_Group:'..msg.chat_id_)
-local monsha = redis:smembers(Pearlin..':MONSHA_BOT:'..msg.chat_id_)
-local Owners = redis:smembers(Pearlin..'owners:'..msg.chat_id_)
-local Admins = redis:smembers(Pearlin..'admins:'..msg.chat_id_)
-local mmez = redis:smembers(Pearlin..'whitelist:'..msg.chat_id_)
+local monshaas = redis:smembers(aian917..':MONSHA_Group:'..msg.chat_id_)
+local monsha = redis:smembers(aian917..':MONSHA_BOT:'..msg.chat_id_)
+local Owners = redis:smembers(aian917..'owners:'..msg.chat_id_)
+local Admins = redis:smembers(aian917..'admins:'..msg.chat_id_)
+local mmez = redis:smembers(aian917..'whitelist:'..msg.chat_id_)
 if #monshaas==0 and #monsha==0 and #Owners==0 and #Admins==0 and #mmez==0 then return "* لا يوجد قائمه حاليا \n *" end
 i = 1
 for k,v in pairs(mmez) do
 if not message:match(v) then
-local info  = redis:hgetall(Pearlin..'username:'..v)
+local info  = redis:hgetall(aian917..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..i.."- ["..info.username..'] \n'
 else
@@ -924,7 +924,7 @@ end
 end 
 for k,v in pairs(Admins) do
 if not message:match(v) then
-local info  = redis:hgetall(Pearlin..'username:'..v)
+local info  = redis:hgetall(aian917..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..i.."- ["..info.username..'] \n'
 else
@@ -935,7 +935,7 @@ end
 end 
 for k,v in pairs(Owners) do
 if not message:match(v) then
-local info  = redis:hgetall(Pearlin..'username:'..v)
+local info  = redis:hgetall(aian917..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..i.."- ["..info.username..'] \n'
 else
@@ -946,7 +946,7 @@ end
 end
 for k,v in pairs(monsha) do
 if not message:match(v) then
-local info  = redis:hgetall(Pearlin..'username:'..v)
+local info  = redis:hgetall(aian917..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..i.."- ["..info.username..'] \n'
 else
@@ -958,7 +958,7 @@ end
 
 for k,v in pairs(monshaas) do
 if not message:match(v) then
-local info  = redis:hgetall(Pearlin..'username:'..v)
+local info  = redis:hgetall(aian917..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..i.."- ["..info.username..'] \n'
 else
@@ -971,13 +971,13 @@ return message
 end
 
 function sudolist(msg)
-local list = redis:smembers(Pearlin..':SUDO_BOT:')
-message = '*-›* قائمه الـمـطـوريـن . \n\n`🎖`*-* ['..SUDO_USER..'] -› (' ..SUDO_ID.. '){'..redis:scard(Pearlin..'mtwr_count'..SUDO_ID)..'}\n*----------------------------------*\n'
+local list = redis:smembers(aian917..':SUDO_BOT:')
+message = '*-›* قائمه الـمـطـوريـن . \n\n`🎖`*-* ['..SUDO_USER..'] -› (' ..SUDO_ID.. '){'..redis:scard(aian917..'mtwr_count'..SUDO_ID)..'}\n*----------------------------------*\n'
 if #list==0 then  message = message.."* لا يوجد مطورين حاليا .\n *"
 else
 for k,v in pairs(list) do
-local info  = redis:hgetall(Pearlin..'username:'..v)
-local count = redis:scard(Pearlin..'mtwr_count'..v)
+local info  = redis:hgetall(aian917..'username:'..v)
+local count = redis:scard(aian917..'mtwr_count'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..k.."- ["..info.username..'] » (`' ..v.. '`) \n'
 else
@@ -998,12 +998,12 @@ function conslist(msg)
 
 
 message = '*-› المنشئيين الاساسيين .*\n\n'
-local monsha = redis:smembers(Pearlin..':MONSHA_Group:'..msg.chat_id_)
+local monsha = redis:smembers(aian917..':MONSHA_Group:'..msg.chat_id_)
 if #monsha == 0 then 
 message = message .."-› Not Super Creator - لا يوجد مالكيين ااساسيين !\n"
 else
 for k,v in pairs(monsha) do
-local info = redis:hgetall(Pearlin..'username:'..v)
+local info = redis:hgetall(aian917..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..k.."- ["..info.username..'] » (`' ..v.. '`) \n'
 else
@@ -1013,12 +1013,12 @@ end
 end
 
 message = message..'\n\n\n*-› المنشئيين .*\n\n'
-local monsha = redis:smembers(Pearlin..':MONSHA_BOT:'..msg.chat_id_)
+local monsha = redis:smembers(aian917..':MONSHA_BOT:'..msg.chat_id_)
 if #monsha == 0 then 
 message = message .."-› Not Creator - لا يوجد منشئيين !\n"
 else
 for k,v in pairs(monsha) do
-local info = redis:hgetall(Pearlin..'username:'..v)
+local info = redis:hgetall(aian917..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..k.."- ["..info.username..'] » (`' ..v.. '`) \n'
 else
@@ -1032,12 +1032,12 @@ end
 
 function ownerlist(msg)
 message = '*-› قائمه المدراء :*\n\n'
-local list = redis:smembers(Pearlin..'owners:'..msg.chat_id_)
+local list = redis:smembers(aian917..'owners:'..msg.chat_id_)
 if #list == 0 then  
 message = message.."-› Not Director - لا يوجد مدراء !\n" 
 else
 for k,v in pairs(list) do
-local info = redis:hgetall(Pearlin..'username:'..v)
+local info = redis:hgetall(aian917..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..k.. '- ['..(info.username or '')..'] » (`' ..v.. '`) \n'
 else
@@ -1055,11 +1055,11 @@ end
 --================================{{ List Admins  }} ===================================
 
 function GetListAdmin(msg)
-local list = redis:smembers(Pearlin..'admins:'..msg.chat_id_)
+local list = redis:smembers(aian917..'admins:'..msg.chat_id_)
 if #list==0 then  return  "*-›* لا يوجد ادمن في هذه المجموعه .\n" end
 message = '*-› قائمه الادمنيه .*\n\n'
 for k,v in pairs(list) do
-local info = redis:hgetall(Pearlin..'username:'..v)
+local info = redis:hgetall(aian917..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..k.. '-l ['..info.username..'] » (`' ..v.. '`) \n'
 else
@@ -1076,11 +1076,11 @@ end
 --================================{{  List WhiteList  }} ===================================
 
 function whitelist(msg)
-local list = redis:smembers(Pearlin..'whitelist:'..msg.chat_id_)
+local list = redis:smembers(aian917..'whitelist:'..msg.chat_id_)
 if #list == 0 then return "*-› لا يوجد مميزين في القائمه *" end
 message = '*-›* قائمه الاعضاء المميزين .\n'   
 for k,v in pairs(list) do
-local info = redis:hgetall(Pearlin..'username:'..v)
+local info = redis:hgetall(aian917..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..k.. '- ['..info.username..'] » (`' ..v.. '`) \n'
 else
@@ -1097,7 +1097,7 @@ end
 --================================{{  Mute User And List Mute User   }} ===================================
 
 function MuteUser(Group, User)
-if redis:sismember(Pearlin..'is_silent_users:'..Group,User) then 
+if redis:sismember(aian917..'is_silent_users:'..Group,User) then 
 return true 
 else
 return false
@@ -1106,11 +1106,11 @@ end
 
 
 function MuteUser_list(msg)
-local list = redis:smembers(Pearlin..'is_silent_users:'..msg.chat_id_)
+local list = redis:smembers(aian917..'is_silent_users:'..msg.chat_id_)
 if #list==0 then return "*-›*  لايوجد اعضاء مكتومين ." end
 message = '*-›*  قائمه الاعضاء المكتومين .\n'
 for k,v in pairs(list) do
-local info = redis:hgetall(Pearlin..'username:'..v)
+local info = redis:hgetall(aian917..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..k.. '- ['..info.username..'] » (`' ..v.. '`) \n'
 else
@@ -1129,7 +1129,7 @@ end
 
 
 function Check_Banned(Group,User)
-if redis:sismember(Pearlin..'banned:'..Group,User) then 
+if redis:sismember(aian917..'banned:'..Group,User) then 
 return true 
 else
 return false
@@ -1137,11 +1137,11 @@ end
 end
 
 function GetListBanned(msg)
-local list = redis:smembers(Pearlin..'banned:'..msg.chat_id_)
+local list = redis:smembers(aian917..'banned:'..msg.chat_id_)
 if #list==0 then return "*-›* لايوجد أعضاء محظورين ." end
 message = '*-›* قائمه الاعضاء المحظورين .\n'
 for k,v in pairs(list) do
-local info = redis:hgetall(Pearlin..'username:'..v)
+local info = redis:hgetall(aian917..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..k.. '- ['..info.username..'] » (`' ..v.. '`) \n'
 else
@@ -1159,7 +1159,7 @@ end
 
 --================================{{  Sudoer  }} ===================================
 function GeneralBanned(User)
-if redis:sismember(Pearlin..'gban_users',User) then 
+if redis:sismember(aian917..'gban_users',User) then 
 return true 
 else
 return false
@@ -1167,11 +1167,11 @@ end
 end
 
 function GetListGeneralBanned(msg)
-local list = redis:smembers(Pearlin..'gban_users')
+local list = redis:smembers(aian917..'gban_users')
 if #list==0 then return  "*-› لايوجد اعضاء محظورين عام .*" end
 message = '*-›* قائمه المحظورين عام .\n'
 for k,v in pairs(list) do
-local info = redis:hgetall(Pearlin..'username:'..v)
+local info = redis:hgetall(aian917..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..k.. '- ['..info.username..'] » (`' ..v.. '`) \n'
 else
@@ -1191,7 +1191,7 @@ function FilterX(msg,text)
 text = tostring(text)
 local var = false
 if not msg.Admin and not msg.Special then -- للاعضاء فقط  
-local list = redis:smembers(Pearlin..':Filter_Word:'..msg.chat_id_)
+local list = redis:smembers(aian917..':Filter_Word:'..msg.chat_id_)
 if #list ~=0 then
 for k,word in pairs(list) do
 if text:match('^('..word..')$') or text:match(word..' .*') or text:match('.* '..word) then
@@ -1211,7 +1211,7 @@ end
 
 
 function FilterXList(msg)
-local list = redis:smembers(Pearlin..':Filter_Word:'..msg.chat_id_)
+local list = redis:smembers(aian917..':Filter_Word:'..msg.chat_id_)
 if #list == 0 then return "*-›* قائمه الكلمات الممنوعه فارغه ." end
 filterlist = '*-›* قائمه الكلمات الممنوعه .\n'    
 for k,v in pairs(list) do
@@ -1225,17 +1225,17 @@ end
 end
 
 function AddFilter(msg, word)
-if redis:sismember(Pearlin..':Filter_Word:'..msg.chat_id_,word) then 
+if redis:sismember(aian917..':Filter_Word:'..msg.chat_id_,word) then 
 return  "*-›* الكلمه *{"..word.."}* هي بالتأكيد من قائمه المنع️" 
 else
-redis:sadd(Pearlin..':Filter_Word:'..msg.chat_id_,word) 
+redis:sadd(aian917..':Filter_Word:'..msg.chat_id_,word) 
 return  "*-›* الكلمه *{"..word.."}* تمت اضافتها الى قائمه المنع .️"
 end
 end
 
 function RemFilter(msg, word)
-if redis:sismember(Pearlin..':Filter_Word:'..msg.chat_id_,word) then 
-redis:srem(Pearlin..':Filter_Word:'..msg.chat_id_,word) 
+if redis:sismember(aian917..':Filter_Word:'..msg.chat_id_,word) then 
+redis:srem(aian917..':Filter_Word:'..msg.chat_id_,word) 
 return  "*-›* الكلمه *{"..word.."}* تم السماح بها ." 
 else
 return  "*-›* الكلمه *{"..word.."}* هي بالتأكيد مسموح بها." 
@@ -1245,11 +1245,11 @@ end
 ------------------------------------------
 
 function CheckFlood(User,ChatID)
-local NumberFlood = tonumber(redis:get(Pearlin..':Flood_Spam:'..User..':'..ChatID..':msgs') or 0)
+local NumberFlood = tonumber(redis:get(aian917..':Flood_Spam:'..User..':'..ChatID..':msgs') or 0)
 if NumberFlood >= 5 then 
 result = false
 else
-redis:setex(Pearlin..':Flood_Spam:'..User..':'..ChatID..':msgs',2,NumberFlood+1)
+redis:setex(aian917..':Flood_Spam:'..User..':'..ChatID..':msgs',2,NumberFlood+1)
 result = true
 end
 return result
@@ -1258,10 +1258,10 @@ end
 
 function buck_up_groups(msg)
 
-json_data = '{"BotID": '..Pearlin..',"UserBot": "'..Bot_User..'","Groups" : {'
-local All_Groups_ID = redis:smembers(Pearlin..'group:ids')
+json_data = '{"BotID": '..aian917..',"UserBot": "'..Bot_User..'","Groups" : {'
+local All_Groups_ID = redis:smembers(aian917..'group:ids')
 for key,GroupS in pairs(All_Groups_ID) do
-local NameGroup = (redis:get(Pearlin..'group:name'..GroupS) or '')
+local NameGroup = (redis:get(aian917..'group:name'..GroupS) or '')
 NameGroup = NameGroup:gsub('"','')
 NameGroup = NameGroup:gsub([[\]],'')
 if key == 1 then
@@ -1270,11 +1270,11 @@ else
 json_data =  json_data..',"'..GroupS..'":{"Title":"'..NameGroup..'"'
 end
 
-local admins = redis:smembers(Pearlin..'admins:'..GroupS)
+local admins = redis:smembers(aian917..'admins:'..GroupS)
 if #admins ~= 0 then
 json_data =  json_data..',"Admins" : {'
 for key,value in pairs(admins) do
-local info = redis:hgetall(Pearlin..'username:'..value)
+local info = redis:hgetall(aian917..'username:'..value)
 if info then 
 UserName_ = (info.username or "")
 UserName_ = UserName_:gsub([[\]],'')
@@ -1289,11 +1289,11 @@ end
 json_data =  json_data..'}'
 end
 
-local creator = redis:smembers(Pearlin..':MONSHA_BOT:'..GroupS)
+local creator = redis:smembers(aian917..':MONSHA_BOT:'..GroupS)
 if #creator ~= 0 then
 json_data =  json_data..',"Creator" : {'
 for key,value in pairs(creator) do
-local info = redis:hgetall(Pearlin..'username:'..value)
+local info = redis:hgetall(aian917..'username:'..value)
 if info then 
 UserName_ = (info.username or "")
 UserName_ = UserName_:gsub([[\]],'')
@@ -1308,11 +1308,11 @@ end
 json_data =  json_data..'}'
 end
 
-local owner = redis:smembers(Pearlin..'owners:'..GroupS)
+local owner = redis:smembers(aian917..'owners:'..GroupS)
 if #owner ~= 0 then
 json_data =  json_data..',"Owner" : {'
 for key,value in pairs(owner) do
-local info = redis:hgetall(Pearlin..'username:'..value)
+local info = redis:hgetall(aian917..'username:'..value)
 if info then 
 UserName_ = (info.username or "")
 UserName_ = UserName_:gsub([[\]],'')
@@ -1337,10 +1337,10 @@ sendDocument(msg.chat_id_,msg.id_,"./inc/"..Bot_User..".json","-› ملف ال�
 end
 
 function chat_list(msg)
-local list = redis:smembers(Pearlin..'group:ids')
+local list = redis:smembers(aian917..'group:ids')
 message = '*-›* قائمه المجموعات .\n\n'
 for k,v in pairs(list) do 
-local info = redis:get(Pearlin..'group:name'..v)
+local info = redis:get(aian917..'group:name'..v)
 if info then 
 if utf8.len(info) > 25 then
 info = utf8.escape(utf8.gsub(info,0,25))..'...'
@@ -1352,7 +1352,7 @@ end
 end
 all_groups = '-› قائمه المجموعات :<br><br>'
 for k,v in pairs(list) do 
-local info = redis:get(Pearlin..'group:name'..v)
+local info = redis:get(aian917..'group:name'..v)
 if info then
 all_groups = all_groups..' '..k..'- <span style="color: #bd2a2a;">'..info.. '</span> <br> ايدي ☜ (<span style="color:#078883;">' ..v.. '</span>)<br>'
 else
@@ -1392,35 +1392,35 @@ end
 
 function rem_data_group(id_group)
 redis:del(
-Pearlin..'group:add'..id_group,
-Pearlin..'lock_link'..id_group, 
-Pearlin..'lock_id'..id_group,
-Pearlin..'lock_spam'..id_group, 
-Pearlin..'lock_webpage'..id_group,
-Pearlin..'lock_markdown'..id_group,
-Pearlin..'lock_flood'..id_group,
-Pearlin..'lock_bots'..id_group,
-Pearlin..'mute_forward'..id_group,
-Pearlin..'mute_contact'..id_group,
-Pearlin..'mute_location'..id_group,
-Pearlin..'mute_document'..id_group,
-Pearlin..'mute_keyboard'..id_group,
-Pearlin..'mute_game'..id_group,
-Pearlin..'mute_inline'..id_group,
-Pearlin..'lock_username'..id_group,
-Pearlin..'num_msg_max'..id_group,
-Pearlin..'mute_text'..id_group,
-Pearlin..'admins:'..id_group,
-Pearlin..':Filter_Word:'..id_group,
-Pearlin..'banned:'..id_group,
-Pearlin..'is_silent_users:'..id_group,
-Pearlin..'whitelist:'..id_group,
-Pearlin..':MONSHA_BOT:'..id_group,
-Pearlin..'owners:'..id_group,
-Pearlin..'replay'..id_group,
-Pearlin..':MONSHA_Group:'..id_group
+aian917..'group:add'..id_group,
+aian917..'lock_link'..id_group, 
+aian917..'lock_id'..id_group,
+aian917..'lock_spam'..id_group, 
+aian917..'lock_webpage'..id_group,
+aian917..'lock_markdown'..id_group,
+aian917..'lock_flood'..id_group,
+aian917..'lock_bots'..id_group,
+aian917..'mute_forward'..id_group,
+aian917..'mute_contact'..id_group,
+aian917..'mute_location'..id_group,
+aian917..'mute_document'..id_group,
+aian917..'mute_keyboard'..id_group,
+aian917..'mute_game'..id_group,
+aian917..'mute_inline'..id_group,
+aian917..'lock_username'..id_group,
+aian917..'num_msg_max'..id_group,
+aian917..'mute_text'..id_group,
+aian917..'admins:'..id_group,
+aian917..':Filter_Word:'..id_group,
+aian917..'banned:'..id_group,
+aian917..'is_silent_users:'..id_group,
+aian917..'whitelist:'..id_group,
+aian917..':MONSHA_BOT:'..id_group,
+aian917..'owners:'..id_group,
+aian917..'replay'..id_group,
+aian917..':MONSHA_Group:'..id_group
 )
-redis:srem(Pearlin..'group:ids',id_group)
+redis:srem(aian917..'group:ids',id_group)
 end
 
 
@@ -1431,10 +1431,10 @@ local NumAdmin = 0
 for k,v in pairs(data.members_) do
 if not data.members_[k].bot_info_ and data.members_[k].status_.ID == "ChatMemberStatusEditor" then
 NumAdmin = NumAdmin + 1
-if not redis:sismember(Pearlin..'admins:'..arg.chat_id_,v.user_id_) then
+if not redis:sismember(aian917..'admins:'..arg.chat_id_,v.user_id_) then
 GetUserID(v.user_id_,function(arg,data)
-redis:hset(Pearlin..'username:'..data.id_,'username',ResolveUserName(data))
-redis:sadd(Pearlin..'admins:'..arg.chat_id_,data.id_)
+redis:hset(aian917..'username:'..data.id_,'username',ResolveUserName(data))
+redis:sadd(aian917..'admins:'..arg.chat_id_,data.id_)
 end,{chat_id_=msg.chat_id_,id_=msg.id_})
 end
 end
@@ -1451,7 +1451,7 @@ end
 
 
 function modadd(msg)
-if redis:get(Pearlin..'lock_service') then
+if redis:get(aian917..'lock_service') then
 lock_servicez = true
 else
 lock_servicez = false
@@ -1464,9 +1464,9 @@ if msg.type ~= "channel" then return '-› البوت يعمل فقط في ال�
 GetUserID(msg.sender_user_id_,function(arg,data)
 msg = arg.msg 
 local NameUser   = Hyper_Link_Name(data)
-if redis:get(Pearlin..'group:add'..msg.chat_id_) then  return sendMsg(msg.chat_id_,msg.id_,'-› المستخدم ( '..NameUser..' ) \n-› المجموعه بالتأكيد ️تم تفعيلها .\n') end
+if redis:get(aian917..'group:add'..msg.chat_id_) then  return sendMsg(msg.chat_id_,msg.id_,'-› المستخدم ( '..NameUser..' ) \n-› المجموعه بالتأكيد ️تم تفعيلها .\n') end
 
-local UserChaneel = redis:get(Pearlin..":UserNameChaneel")
+local UserChaneel = redis:get(aian917..":UserNameChaneel")
 if UserChaneel and not msg.SudoBase then
 local url , res = https.request(ApiToken..'/getchatmember?chat_id='..UserChaneel..'&user_id='..msg.sender_user_id_)
 if res == 200 then
@@ -1482,14 +1482,14 @@ end
 
 
 
-if redis:get(Pearlin..'lock_service') then
+if redis:get(aian917..'lock_service') then
 lock_servicez = true
 else
 lock_servicez = false
 end
 
 GetFullChat(msg.chat_id_,function(arg,data) 
-local GroupUsers = tonumber(redis:get(Pearlin..':addnumberusers') or 0)
+local GroupUsers = tonumber(redis:get(aian917..':addnumberusers') or 0)
 local Groupcount = tonumber(data.member_count_)
 if GroupUsers  >= Groupcount and not arg.SudoBase then
 return sendMsg(arg.chat_id_,arg.id_,'*-›* لا يمكنني تفعيل المجموعه يجب ان يكون اكثر مـن *【'..GroupUsers..'】* عضـو .')
@@ -1507,14 +1507,14 @@ GetChannelAdministrators(arg.chat_id_,function(arg,data)
 for k,v in pairs(data.members_) do
 if data.members_[k].status_.ID == "ChatMemberStatusCreator" then
 GetUserID(v.user_id_,function(arg,data)
-redis:hset(Pearlin..'username:'..data.id_,'username', ResolveUserName(data))
-redis:sadd(Pearlin..':MONSHA_Group:'..arg.chat_id_,data.id_)
+redis:hset(aian917..'username:'..data.id_,'username', ResolveUserName(data))
+redis:sadd(aian917..':MONSHA_Group:'..arg.chat_id_,data.id_)
 end,{chat_id_=arg.chat_id_})
 elseif arg.lock_servicez and not data.members_[k].bot_info_ and data.members_[k].status_.ID == "ChatMemberStatusEditor" then
-if not redis:sismember(Pearlin..'admins:'..arg.chat_id_,v.user_id_) then
+if not redis:sismember(aian917..'admins:'..arg.chat_id_,v.user_id_) then
 GetUserID(v.user_id_,function(arg,data)
-redis:hset(Pearlin..'username:'..data.id_,'username',ResolveUserName(data))
-redis:sadd(Pearlin..'admins:'..arg.chat_id_,data.id_)
+redis:hset(aian917..'username:'..data.id_,'username',ResolveUserName(data))
+redis:sadd(aian917..'admins:'..arg.chat_id_,data.id_)
 end,{chat_id_=arg.chat_id_})
 end
 end
@@ -1526,36 +1526,36 @@ end,25,{chat_id_=arg.chat_id_,sender_user_id_=arg.sender_user_id_,lock_servicez=
 GroupTitle(arg.chat_id_,function(arg,data)
 
 redis:mset(
-Pearlin..'group:add'..arg.chat_id_,true,
-Pearlin..'lock_link'..arg.chat_id_,true, 
-Pearlin..'lock_id'..arg.chat_id_,true,
-Pearlin..'lock_spam'..arg.chat_id_,true,
-Pearlin..'lock_webpage'..arg.chat_id_,true,
-Pearlin..'lock_markdown'..arg.chat_id_,true,
-Pearlin..'lock_flood'..arg.chat_id_,true,
-Pearlin..'lock_bots'..arg.chat_id_,true,
-Pearlin..'mute_forward'..arg.chat_id_,true,
-Pearlin..'mute_contact'..arg.chat_id_,true,
-Pearlin..'mute_location'..arg.chat_id_,true,
-Pearlin..'mute_document'..arg.chat_id_,true,
-Pearlin..'mute_keyboard'..arg.chat_id_,true,
-Pearlin..'mute_game'..arg.chat_id_,true,
-Pearlin..'mute_inline'..arg.chat_id_,true,
-Pearlin..'lock_username'..arg.chat_id_,true,
-Pearlin..'num_msg_max'..arg.chat_id_,5, 
-Pearlin..'lock_edit'..arg.chat_id_,true,
-Pearlin..'replay'..arg.chat_id_,true,
-Pearlin..'lock_rdodSource'..arg.chat_id_,true,
-Pearlin.."lock_KickBan"..msg.chat_id_,true,
-Pearlin.."lock_mmno3"..msg.chat_id_,true,
-Pearlin.."lock_KickBan"..msg.chat_id_,true,
-Pearlin.."lock_linkk"..msg.chat_id_,true
+aian917..'group:add'..arg.chat_id_,true,
+aian917..'lock_link'..arg.chat_id_,true, 
+aian917..'lock_id'..arg.chat_id_,true,
+aian917..'lock_spam'..arg.chat_id_,true,
+aian917..'lock_webpage'..arg.chat_id_,true,
+aian917..'lock_markdown'..arg.chat_id_,true,
+aian917..'lock_flood'..arg.chat_id_,true,
+aian917..'lock_bots'..arg.chat_id_,true,
+aian917..'mute_forward'..arg.chat_id_,true,
+aian917..'mute_contact'..arg.chat_id_,true,
+aian917..'mute_location'..arg.chat_id_,true,
+aian917..'mute_document'..arg.chat_id_,true,
+aian917..'mute_keyboard'..arg.chat_id_,true,
+aian917..'mute_game'..arg.chat_id_,true,
+aian917..'mute_inline'..arg.chat_id_,true,
+aian917..'lock_username'..arg.chat_id_,true,
+aian917..'num_msg_max'..arg.chat_id_,5, 
+aian917..'lock_edit'..arg.chat_id_,true,
+aian917..'replay'..arg.chat_id_,true,
+aian917..'lock_rdodSource'..arg.chat_id_,true,
+aian917.."lock_KickBan"..msg.chat_id_,true,
+aian917.."lock_mmno3"..msg.chat_id_,true,
+aian917.."lock_KickBan"..msg.chat_id_,true,
+aian917.."lock_linkk"..msg.chat_id_,true
 )
-redis:sadd(Pearlin..'group:ids',arg.chat_id_) 
-redis:sadd(Pearlin..'mtwr_count'..arg.sender_user_id_,arg.chat_id_)
+redis:sadd(aian917..'group:ids',arg.chat_id_) 
+redis:sadd(aian917..'mtwr_count'..arg.sender_user_id_,arg.chat_id_)
 
 local NameGroup = data.title_
-redis:set(Pearlin..'group:name'..arg.chat_id_,NameGroup)
+redis:set(aian917..'group:name'..arg.chat_id_,NameGroup)
 if not arg.invite_link_ then
 Gp_Link = ExportLink(arg.chat_id_)
 if Gp_Link and Gp_Link.result then
@@ -1566,7 +1566,7 @@ end
 else
 Gp_Link = arg.invite_link_
 end
-redis:set(Pearlin..'linkGroup'..arg.chat_id_,Gp_Link)
+redis:set(aian917..'linkGroup'..arg.chat_id_,Gp_Link)
 if arg.sender_user_id_ == SUDO_ID then return false end
 GetUserID(arg.sender_user_id_,function(arg,datai)
 if datai.username_ then 
@@ -1615,90 +1615,90 @@ if UserID == our_id then
 return sendMsg(ChatID,MsgID,"*-›* لا يمكنك تقييد البوت .\n") 
 elseif UserID == SUDO_ID then 
 return sendMsg(ChatID,MsgID,"*-›* لا يمكنك طرد Legend .\n") 
-elseif redis:sismember(Pearlin..':SUDO_BOT:',UserID) then 
+elseif redis:sismember(aian917..':SUDO_BOT:',UserID) then 
 return sendMsg(ChatID,MsgID,"*-›* لا يمكنك طرد Staff.\n") 
-elseif redis:sismember(Pearlin..':MONSHA_BOT:'..ChatID,UserID) then 
+elseif redis:sismember(aian917..':MONSHA_BOT:'..ChatID,UserID) then 
 return sendMsg(ChatID,MsgID,"*-›* لا يمكنك طرد المنشئ .\n") 
-elseif redis:sismember(Pearlin..':MONSHA_Group:'..ChatID,UserID) then 
+elseif redis:sismember(aian917..':MONSHA_Group:'..ChatID,UserID) then 
 return sendMsg(ChatID,MsgID,"*-›* لا يمكنك طرد المنشئ الاساسي .\n") 
-elseif redis:sismember(Pearlin..'owners:'..ChatID,UserID) then 
+elseif redis:sismember(aian917..'owners:'..ChatID,UserID) then 
 return sendMsg(ChatID,MsgID,"*-›* لا يمكنك طرد المدير .\n") 
-elseif redis:sismember(Pearlin..'admins:'..ChatID,UserID) then 
+elseif redis:sismember(aian917..'admins:'..ChatID,UserID) then 
 return sendMsg(ChatID,MsgID,"*-›* لا يمكنك طرد الادمن .\n") 
-elseif  redis:sismember(Pearlin..'whitelist:'..ChatID,UserID) then 
+elseif  redis:sismember(aian917..'whitelist:'..ChatID,UserID) then 
 return sendMsg(arg.ChatID,arg.MsgID,"*-›* لا يمكنك طرد المميز .\n") 
 end
 Restrict(ChatID,UserID,1)
-redis:hset(Pearlin..'username:'..UserID, 'username', Resolv)
-redis:sadd(Pearlin..':tqeed:'..ChatID,UserID)
+redis:hset(aian917..'username:'..UserID, 'username', Resolv)
+redis:sadd(aian917..':tqeed:'..ChatID,UserID)
 return sendMsg(ChatID,MsgID,"-› المستخدم  ( "..NameUser.." ) \n️-› تم تقييده بنجاح \n")
 end 
 if cmd =="fktqeed" then
 Restrict(ChatID,UserID,2)
-redis:srem(Pearlin..':tqeed:'..ChatID,UserID)
+redis:srem(aian917..':tqeed:'..ChatID,UserID)
 return sendMsg(ChatID,MsgID,"-› المستخدم  ( "..NameUser.." ) \n-› تم فك تقييده بنجاح .\n")
 end
 if cmd == "setwhitelist" then
-if redis:sismember(Pearlin..'whitelist:'..ChatID,UserID) then 
+if redis:sismember(aian917..'whitelist:'..ChatID,UserID) then 
 return sendMsg(ChatID,MsgID,"-› المستخدم  ( "..NameUser.." ) \n-› تم بالتأكيد رفعه مميز  .\n") 
 end
-redis:hset(Pearlin..'username:'..UserID, 'username', Resolv)
-redis:sadd(Pearlin..'whitelist:'..ChatID,UserID)
+redis:hset(aian917..'username:'..UserID, 'username', Resolv)
+redis:sadd(aian917..'whitelist:'..ChatID,UserID)
 return sendMsg(ChatID,MsgID,"-› المستخدم  ( "..NameUser.." ) \n-› تم رفعه مميز  .\n") 
 end
 if cmd == "remwhitelist" then
-if not redis:sismember(Pearlin..'whitelist:'..ChatID,UserID) then 
+if not redis:sismember(aian917..'whitelist:'..ChatID,UserID) then 
 return sendMsg(ChatID,MsgID,"-› المستخدم  ( "..NameUser.." ) \n-› تم بالتأكيد تنزيله مميز  .\n") 
 end
-redis:srem(Pearlin..'whitelist:'..ChatID,UserID)
+redis:srem(aian917..'whitelist:'..ChatID,UserID)
 return sendMsg(ChatID,MsgID,"-› المستخدم  ( "..NameUser.." ) \n-› تم تنزيله مميز  .\n") 
 end
 if cmd == "setmnsha" then
-if redis:sismember(Pearlin..':MONSHA_BOT:'..ChatID,UserID) then 
+if redis:sismember(aian917..':MONSHA_BOT:'..ChatID,UserID) then 
 return sendMsg(ChatID,MsgID,"-› المستخدم  ( "..NameUser.." ) \n-› تم بالتأكيد رفعه مالك  .\n") 
 end
-redis:hset(Pearlin..'username:'..UserID, 'username', Resolv)
-redis:sadd(Pearlin..':MONSHA_BOT:'..ChatID,UserID)
+redis:hset(aian917..'username:'..UserID, 'username', Resolv)
+redis:sadd(aian917..':MONSHA_BOT:'..ChatID,UserID)
 return sendMsg(ChatID,MsgID,"-› المستخدم  ( "..NameUser.." ) \n-› تم رفعه مالك  .\n") 
 end
 if cmd == "remmnsha" then
-if not redis:sismember(Pearlin..':MONSHA_BOT:'..ChatID,UserID) then 
+if not redis:sismember(aian917..':MONSHA_BOT:'..ChatID,UserID) then 
 return sendMsg(ChatID,MsgID,"-› المستخدم  ( "..NameUser.." ) \n-› تم بالتأكيد تنزيله مالك  .\n") 
 end
-redis:srem(Pearlin..':MONSHA_BOT:'..ChatID,UserID)
+redis:srem(aian917..':MONSHA_BOT:'..ChatID,UserID)
 return sendMsg(ChatID,MsgID,"-› المستخدم  ( "..NameUser.." ) \n-› تم تنزيله منشى  .\n") 
 end
 
 if cmd == "setowner" then
-if redis:sismember(Pearlin..'owners:'..ChatID,UserID) then 
+if redis:sismember(aian917..'owners:'..ChatID,UserID) then 
 return sendMsg(ChatID,MsgID,"-› المستخدم  ( "..NameUser.." ) \n-› تم بالتأكيد رفعه مدير  .\n") 
 end
 Resolv = Resolv:gsub([[\_]],"_")
-redis:hset(Pearlin..'username:'..UserID, 'username', Resolv)
-redis:sadd(Pearlin..'owners:'..ChatID,UserID)
+redis:hset(aian917..'username:'..UserID, 'username', Resolv)
+redis:sadd(aian917..'owners:'..ChatID,UserID)
 return sendMsg(ChatID,MsgID,"-› المستخدم  ( "..NameUser.." ) \n-› تم رفعه مدير  .\n") 
 end
 if cmd == "remowner" then
-if not redis:sismember(Pearlin..'owners:'..ChatID,UserID) then 
+if not redis:sismember(aian917..'owners:'..ChatID,UserID) then 
 return sendMsg(ChatID,MsgID,"-› المستخدم  ( "..NameUser.." ) \n-› تم بالتأكيد تنزيله مدير  .\n") 
 end
-redis:srem(Pearlin..'owners:'..ChatID,UserID)
+redis:srem(aian917..'owners:'..ChatID,UserID)
 return sendMsg(ChatID,MsgID,"-› المستخدم  ( "..NameUser.." ) \n-› تم تنزيله مدير .\n") 
 end
 if cmd == "promote" then
-if redis:sismember(Pearlin..'admins:'..ChatID,UserID) then 
+if redis:sismember(aian917..'admins:'..ChatID,UserID) then 
 return sendMsg(ChatID,MsgID,"-› المستخدم  ( "..NameUser.." ) \n-› تم بالتأكيد رفعه ادمن  .\n") 
 end
 Resolv = Resolv:gsub([[\_]],"_")
-redis:hset(Pearlin..'username:'..UserID, 'username', Resolv)
-redis:sadd(Pearlin..'admins:'..ChatID,UserID) 
+redis:hset(aian917..'username:'..UserID, 'username', Resolv)
+redis:sadd(aian917..'admins:'..ChatID,UserID) 
 return sendMsg(ChatID,MsgID,"-› المستخدم  ( "..NameUser.." ) \n-› تم رفعه ادمن بنجاح .\n") 
 end
 if cmd == "demote" then
-if not redis:sismember(Pearlin..'admins:'..ChatID,UserID) then 
+if not redis:sismember(aian917..'admins:'..ChatID,UserID) then 
 return sendMsg(ChatID,MsgID,"-› المستخدم  ( "..NameUser.." ) \n-› تم بالتأكيد تنزيله ادمن .\n") 
 end
-redis:srem(Pearlin..'admins:'..ChatID,UserID)
+redis:srem(aian917..'admins:'..ChatID,UserID)
 return sendMsg(ChatID,MsgID,"-› المستخدم  ( "..NameUser.." ) \n-› تم تنزيله ادمن بنجاح  .\n") 
 end
 if cmd == "whois" then
@@ -1714,36 +1714,36 @@ end)
 end
 
 if cmd == "Upmonsh" then
-if redis:sismember(Pearlin..':MONSHA_Group:'..ChatID,UserID) then 
+if redis:sismember(aian917..':MONSHA_Group:'..ChatID,UserID) then 
 return sendMsg(ChatID,MsgID,"-› المستخدم  ( "..NameUser.." ) \n-› تم بالتأكيد رفعه مالك اساسي .\n") 
 end
-redis:hset(Pearlin..'username:'..UserID,'username',USERNAME)
-redis:sadd(Pearlin..':MONSHA_Group:'..ChatID,UserID)
+redis:hset(aian917..'username:'..UserID,'username',USERNAME)
+redis:sadd(aian917..':MONSHA_Group:'..ChatID,UserID)
 return sendMsg(ChatID,MsgID,"-› المستخدم  ( "..NameUser.." ) \n-› تم رفعه مالك اساسي .\n") 
 end
 
 if cmd == "Dwmonsh" then
-if not redis:sismember(Pearlin..':MONSHA_Group:'..ChatID,UserID) then 
+if not redis:sismember(aian917..':MONSHA_Group:'..ChatID,UserID) then 
 return sendMsg(ChatID,MsgID,"-› المستخدم  ( "..NameUser.." ) \n-› تم بالتأكيد تنزيله مالك اساسي . \n") 
 end
-redis:srem(Pearlin..':MONSHA_Group:'..ChatID,UserID) 
+redis:srem(aian917..':MONSHA_Group:'..ChatID,UserID) 
 return sendMsg(ChatID,MsgID,"-› المستخدم  ( "..NameUser.." ) \n-› تم تنزيله مالك اساسي  .\n") 
 end
 
 if cmd == "up_sudo" then
-if redis:sismember(Pearlin..':SUDO_BOT:',UserID) then 
+if redis:sismember(aian917..':SUDO_BOT:',UserID) then 
 return sendMsg(ChatID,MsgID,"-› المستخدم  ( "..NameUser.." ) \n-› تم بالتأكيد رفعه مطور .\n") 
 end
-redis:hset(Pearlin..'username:'..UserID, 'username', USERNAME)
-redis:sadd(Pearlin..':SUDO_BOT:',UserID)
+redis:hset(aian917..'username:'..UserID, 'username', USERNAME)
+redis:sadd(aian917..':SUDO_BOT:',UserID)
 return sendMsg(ChatID,MsgID,"-› المستخدم  ( "..NameUser.." ) \n-› تم رفعه مطور بنجاح  .\n") 
 end
 
 if cmd == "dn_sudo" then
-if not redis:sismember(Pearlin..':SUDO_BOT:',UserID) then 
+if not redis:sismember(aian917..':SUDO_BOT:',UserID) then 
 return sendMsg(ChatID,MsgID,"-› المستخدم  ( "..NameUser.." ) \n-› تم بالتأكيد تنزيله مطور .\n") 
 end
-redis:srem(Pearlin..':SUDO_BOT:',UserID) 
+redis:srem(aian917..':SUDO_BOT:',UserID) 
 return sendMsg(ChatID,MsgID,"-› المستخدم  ( "..NameUser.." ) \n-› تم تنزيله مطور .\n") 
 end
 
@@ -1752,24 +1752,24 @@ if UserID == our_id then
 return sendMsg(ChatID,MsgID,"*-›* لا يمكنك حظر البوت .\n") 
 elseif UserID == SUDO_ID then 
 return sendMsg(ChatID,MsgID,"*-›* لا يمكنك حظر Legend .\n") 
-elseif redis:sismember(Pearlin..':SUDO_BOT:',UserID) then 
+elseif redis:sismember(aian917..':SUDO_BOT:',UserID) then 
 return sendMsg(ChatID,MsgID,"*-›* لا يمكنك حظر Staff.\n") 
-elseif redis:sismember(Pearlin..':MONSHA_BOT:'..ChatID,UserID) then 
+elseif redis:sismember(aian917..':MONSHA_BOT:'..ChatID,UserID) then 
 return sendMsg(ChatID,MsgID,"*-›* لا يمكنك حظر المنشئ .\n") 
-elseif redis:sismember(Pearlin..':MONSHA_Group:'..ChatID,UserID) then 
+elseif redis:sismember(aian917..':MONSHA_Group:'..ChatID,UserID) then 
 return sendMsg(ChatID,MsgID,"*-›* لا يمكنك حظر المنشئ الاساسي .\n") 
-elseif redis:sismember(Pearlin..'owners:'..ChatID,UserID) then 
+elseif redis:sismember(aian917..'owners:'..ChatID,UserID) then 
 return sendMsg(ChatID,MsgID,"*-›* لا يمكنك حظر المدير .\n") 
-elseif redis:sismember(Pearlin..'admins:'..ChatID,UserID) then 
+elseif redis:sismember(aian917..'admins:'..ChatID,UserID) then 
 return sendMsg(ChatID,MsgID,"*-›* لا يمكنك حظر الادمن .\n")
-elseif  redis:sismember(Pearlin..'whitelist:'..ChatID,UserID) then 
+elseif  redis:sismember(aian917..'whitelist:'..ChatID,UserID) then 
 return sendMsg(arg.ChatID,arg.MsgID,"*-›* لا يمكنك حظر المميز .\n") 
 end
 if Check_Banned(ChatID,UserID) then 
 return sendMsg(ChatID,MsgID,"-› المستخدم  ( "..NameUser.." ) \n-› تم بالتأكيد حظره  .\n") 
 end
-redis:hset(Pearlin..'username:'..UserID, 'username', Resolv)
-redis:sadd(Pearlin..'banned:'..ChatID,UserID)
+redis:hset(aian917..'username:'..UserID, 'username', Resolv)
+redis:sadd(aian917..'banned:'..ChatID,UserID)
 kick_user(UserID, ChatID)
 return sendMsg(ChatID,MsgID,"-› المستخدم  ( "..NameUser.." ) \n-› تم حظره بنجاح .\n") 
 end
@@ -1779,17 +1779,17 @@ if UserID == our_id then
 return sendMsg(ChatID,MsgID,"*-›* لا يمكنك طرد البوت .\n") 
 elseif UserID == SUDO_ID then 
 return sendMsg(ChatID,MsgID,"*-›* لا يمكنك طرد Legend .\n") 
-elseif redis:sismember(Pearlin..':SUDO_BOT:',UserID) then 
+elseif redis:sismember(aian917..':SUDO_BOT:',UserID) then 
 return sendMsg(ChatID,MsgID,"*-›* لا يمكنك طرد Staff.\n") 
-elseif redis:sismember(Pearlin..':MONSHA_BOT:'..ChatID,UserID) then 
+elseif redis:sismember(aian917..':MONSHA_BOT:'..ChatID,UserID) then 
 return sendMsg(ChatID,MsgID,"*-›* لا يمكنك طرد المنشئ .\n") 
-elseif redis:sismember(Pearlin..':MONSHA_Group:'..ChatID,UserID) then 
+elseif redis:sismember(aian917..':MONSHA_Group:'..ChatID,UserID) then 
 return sendMsg(ChatID,MsgID,"*-›* لا يمكنك طرد المنشئ الاساسي .\n") 
-elseif redis:sismember(Pearlin..'owners:'..ChatID,UserID) then 
+elseif redis:sismember(aian917..'owners:'..ChatID,UserID) then 
 return sendMsg(ChatID,MsgID,"*-›* لا يمكنك طرد المدير .\n") 
-elseif redis:sismember(Pearlin..'admins:'..ChatID,UserID) then 
+elseif redis:sismember(aian917..'admins:'..ChatID,UserID) then 
 return sendMsg(ChatID,MsgID,"*-›* لا يمكنك طرد الادمن .\n") 
-elseif  redis:sismember(Pearlin..'whitelist:'..ChatID,UserID) then 
+elseif  redis:sismember(aian917..'whitelist:'..ChatID,UserID) then 
 return sendMsg(arg.ChatID,arg.MsgID,"*-›* لا يمكنك طرد المميز .\n") 
 end
 kick_user(UserID, ChatID,function(arg,data)
@@ -1809,8 +1809,8 @@ return sendMsg(ChatID,MsgID,"-› المستخدم  ( "..NameUser.." ) \n-› ت
 else
 return sendMsg(ChatID,MsgID,"-› المستخدم  ( "..NameUser.." ) \n-› تم الغاء حظره بنجاح .\n") 
 end
-redis:hset(Pearlin..'username:'..UserID, 'username', Resolv)
-redis:srem(Pearlin..'banned:'..ChatID,UserID)
+redis:hset(aian917..'username:'..UserID, 'username', Resolv)
+redis:srem(aian917..'banned:'..ChatID,UserID)
 StatusLeft(ChatID,UserID)
 return false
 end
@@ -1820,27 +1820,27 @@ if UserID == our_id then
 return sendMsg(ChatID,MsgID,"*-›* لا يمكنك كتم البوت .\n") 
 elseif UserID == SUDO_ID then 
 return sendMsg(ChatID,MsgID,"*-›* لا يمكنك كتم Legend .\n") 
-elseif redis:sismember(Pearlin..':SUDO_BOT:',UserID) then 
+elseif redis:sismember(aian917..':SUDO_BOT:',UserID) then 
 return sendMsg(ChatID,MsgID,"*-›* لا يمكنك كتم Staff.\n") 
-elseif redis:sismember(Pearlin..':MONSHA_BOT:'..ChatID,UserID) then 
+elseif redis:sismember(aian917..':MONSHA_BOT:'..ChatID,UserID) then 
 return sendMsg(ChatID,MsgID,"*-›* لا يمكنك كتم المنشئ .\n") 
-elseif redis:sismember(Pearlin..':MONSHA_Group:'..ChatID,UserID) then 
+elseif redis:sismember(aian917..':MONSHA_Group:'..ChatID,UserID) then 
 return sendMsg(ChatID,MsgID,"*-›* لا يمكنك كتم المنشئ الاساسي .\n") 
-elseif redis:sismember(Pearlin..'owners:'..ChatID,UserID) then 
+elseif redis:sismember(aian917..'owners:'..ChatID,UserID) then 
 return sendMsg(ChatID,MsgID,"*-›* لا يمكنك كتم المدير .\n") 
-elseif redis:sismember(Pearlin..'admins:'..ChatID,UserID) then 
+elseif redis:sismember(aian917..'admins:'..ChatID,UserID) then 
 return sendMsg(ChatID,MsgID,"*-›* لا يمكنك كتم الادمن .\n") 
-elseif  redis:sismember(Pearlin..'whitelist:'..ChatID,UserID) then 
+elseif  redis:sismember(aian917..'whitelist:'..ChatID,UserID) then 
 return sendMsg(arg.ChatID,arg.MsgID,"*-›* لا يمكنك كتم المميز .\n") 
 end
-if redis:sismember(Pearlin..'admins:'..ChatID,UserID) then 
+if redis:sismember(aian917..'admins:'..ChatID,UserID) then 
 return sendMsg(ChatID,MsgID,"*-›* لا يمكنك كتم المدراء او الادمنيه .\n") 
 end
 if MuteUser(ChatID, UserID) then 
 return sendMsg(ChatID,MsgID,"-› المستخدم  ( "..NameUser.." ) \n-› تم بالتأكيد كتمه .\n") 
 end
-redis:hset(Pearlin..'username:'..UserID, 'username', Resolv)
-redis:sadd(Pearlin..'is_silent_users:'..ChatID,UserID)
+redis:hset(aian917..'username:'..UserID, 'username', Resolv)
+redis:sadd(aian917..'is_silent_users:'..ChatID,UserID)
 return sendMsg(ChatID,MsgID,"-› المستخدم  ( "..NameUser.." ) \n-› تم كتمه بنجاح .\n") 
 end
 
@@ -1848,15 +1848,15 @@ if cmd == "unktm" then
 if not MuteUser(ChatID, UserID) then 
 return sendMsg(ChatID,MsgID,"-› المستخدم  ( "..NameUser.." ) \n-› تم بالتأكيد الغاء كتمه .\n") 
 end
-redis:hset(Pearlin..'username:'..UserID, 'username', Resolv)
-redis:srem(Pearlin..'is_silent_users:'..ChatID,UserID)
+redis:hset(aian917..'username:'..UserID, 'username', Resolv)
+redis:srem(aian917..'is_silent_users:'..ChatID,UserID)
 return sendMsg(ChatID,MsgID,"-› المستخدم  ( "..NameUser.." ) \n-› تم الغاء كتمه بنجاح .\n") 
 end
 
 if cmd == "upMshrf" then
-redis:hset(Pearlin..'username:'..UserID,'username',Resolv)
-redis:setex(Pearlin..":uploadingsomeon:"..ChatID..msg.sender_user_id_,500,NameUser)
-redis:setex(Pearlin..":uploadingsomeon2:"..ChatID..msg.sender_user_id_,500,UserID)
+redis:hset(aian917..'username:'..UserID,'username',Resolv)
+redis:setex(aian917..":uploadingsomeon:"..ChatID..msg.sender_user_id_,500,NameUser)
+redis:setex(aian917..":uploadingsomeon2:"..ChatID..msg.sender_user_id_,500,UserID)
 sendMsg(ChatID,MsgID,"-›  حسننا الان ارسل صلاحيات المشرف :\n\n|1- صلاحيه تغيير المعلومات\n|2- صلاحيه حذف الرسائل\n|3- صلاحيه دعوه مستخدمين\n|4- صلاحيه حظر وتقيد المستخدمين \n|5- صلاحيه تثبيت الرسائل \n|6- صلاحيه رفع مشرفين اخرين\n\n|[*]- لرفع كل الصلاحيات ما عدا رفع المشرفين \n|[**] - لرفع كل الصلاحيات مع رفع المشرفين \n\n-› يمكنك اختيار الارقام معا وتعيين الكنيه للمشرف في ان واحد مثلا : \n\n| 136 ايان\n") 
 return false
 end
@@ -1864,10 +1864,10 @@ end
 if cmd == "DwonMshrf" then
 ResAdmin = UploadAdmin(ChatID,UserID,"")  
 if ResAdmin == '{"ok":false,"error_code":400,"description":"Bad Request: CHAT_ADMIN_REQUIRED"}' then return sendMsg(ChatID,MsgID,"*-›*لا يمكنني تنزيله لانه مرفوع من قبل مالك اخر .\n")  end
-redis:srem(Pearlin..':MONSHA_BOT:'..ChatID,UserID)
-redis:srem(Pearlin..'owners:'..ChatID,UserID)
-redis:srem(Pearlin..'admins:'..ChatID,UserID)
-redis:srem(Pearlin..'whitelist:'..ChatID,UserID)
+redis:srem(aian917..':MONSHA_BOT:'..ChatID,UserID)
+redis:srem(aian917..'owners:'..ChatID,UserID)
+redis:srem(aian917..'admins:'..ChatID,UserID)
+redis:srem(aian917..'whitelist:'..ChatID,UserID)
 sendMsg(ChatID,MsgID,"-› المستخدم  ( "..NameUser.." ) \n-› تم تنزيله من مشرفين المجموعه \n")
 return false
 end
@@ -1877,14 +1877,14 @@ if UserID == our_id then
 return sendMsg(ChatID,MsgID,"*-›* لا يمكنك حظر البوت .\n") 
 elseif UserID == SUDO_ID then 
 return sendMsg(ChatID,MsgID,"*-›* لا يمكنك حظر Legend .\n")
-elseif redis:sismember(Pearlin..':SUDO_BOT:',UserID) then 
+elseif redis:sismember(aian917..':SUDO_BOT:',UserID) then 
 return sendMsg(ChatID,MsgID,"*-›* لا يمكنك حظر Staff.\n") 
 end
 if GeneralBanned(UserID) then 
 return sendMsg(ChatID,MsgID,"-› المستخدم  ( "..NameUser.." ) \n️-› تم بالتأكيد حظره عام .\n") 
 end
-redis:hset(Pearlin..'username:'..UserID, 'username', Resolv)
-redis:sadd(Pearlin..'gban_users',UserID)
+redis:hset(aian917..'username:'..UserID, 'username', Resolv)
+redis:sadd(aian917..'gban_users',UserID)
 kick_user(UserID,ChatID) 
 return sendMsg(ChatID,MsgID,"-› المستخدم  ( "..NameUser.." ) \n-› تم حظره عام بنجاح .\n") 
 end
@@ -1893,15 +1893,15 @@ if cmd == "unbandall" then
 if not GeneralBanned(UserID) then
 return sendMsg(ChatID,MsgID,"-› المستخدم  ( "..NameUser.." ) \n-› تم بالتأكيد الغاء حظره العام .\n") 
 end
-redis:srem(Pearlin..'gban_users',UserID)
+redis:srem(aian917..'gban_users',UserID)
 StatusLeft(ChatID,UserID)
 return sendMsg(ChatID,MsgID,"-› المستخدم  ( "..NameUser.." ) \n-› تم الغاء حظره العام بنجاح .\n") 
 end
 
 if cmd == "tfa3l" then  
-local maseegs = redis:get(Pearlin..'msgs:'..UserID..':'..ChatID) or 1
-local edited = redis:get(Pearlin..':edited:'..ChatID..':'..UserID) or 0
-local content = redis:get(Pearlin..':adduser:'..ChatID..':'..UserID) or 0
+local maseegs = redis:get(aian917..'msgs:'..UserID..':'..ChatID) or 1
+local edited = redis:get(aian917..':edited:'..ChatID..':'..UserID) or 0
+local content = redis:get(aian917..':adduser:'..ChatID..':'..UserID) or 0
 if data.username_ then UserNameID = "@"..data.username_ else UserNameID = "لا يوجد" end  
 
 sendMsg(ChatID,MsgID,"-› ايديه » `"..UserID.."`\n-› رسائله » "..maseegs.."\n-› معرفه » ["..UserNameID.."]\n-› تفاعله » "..Get_Ttl(maseegs).."\n-› رتبته » "..Getrtba(UserID,ChatID).."\n-› تعديلاته » "..edited.."\n-› جهاته » "..content.."") 
@@ -1910,9 +1910,9 @@ end
 if cmd == "rfaqud" then  
 if UserID == our_id then return sendMsg(ChatID,MsgID,"*-›* لا يمكنك تنفيذ الامر بالرد ع رسالة البوت .\n") end
 Restrict(ChatID,UserID,2)
-redis:srem(Pearlin..'banned:'..ChatID,UserID)
+redis:srem(aian917..'banned:'..ChatID,UserID)
 StatusLeft(ChatID,UserID)
-redis:srem(Pearlin..'is_silent_users:'..ChatID,UserID)
+redis:srem(aian917..'is_silent_users:'..ChatID,UserID)
 return sendMsg(ChatID,MsgID,"-› المستخدم  ( "..NameUser.." ) \n-› تم رفع القيود ان وجد\n") 
 end
 
@@ -1923,38 +1923,38 @@ if UserID == our_id then return sendMsg(ChatID,MsgID,"*-›* لآ يمكنك ت�
 
 if UserID == SUDO_ID then 
 rinkuser = 1
-elseif redis:sismember(Pearlin..':SUDO_BOT:',UserID) then 
+elseif redis:sismember(aian917..':SUDO_BOT:',UserID) then 
 rinkuser = 2
-elseif redis:sismember(Pearlin..':MONSHA_Group:'..ChatID,UserID) then 
+elseif redis:sismember(aian917..':MONSHA_Group:'..ChatID,UserID) then 
 rinkuser = 3
-elseif redis:sismember(Pearlin..':MONSHA_BOT:'..ChatID,UserID) then 
+elseif redis:sismember(aian917..':MONSHA_BOT:'..ChatID,UserID) then 
 rinkuser = 4
-elseif redis:sismember(Pearlin..'owners:'..ChatID,UserID) then 
+elseif redis:sismember(aian917..'owners:'..ChatID,UserID) then 
 rinkuser = 5
-elseif redis:sismember(Pearlin..'admins:'..ChatID,UserID) then 
+elseif redis:sismember(aian917..'admins:'..ChatID,UserID) then 
 rinkuser = 6
-elseif redis:sismember(Pearlin..'whitelist:'..ChatID,UserID) then 
+elseif redis:sismember(aian917..'whitelist:'..ChatID,UserID) then 
 rinkuser = 7
 else
 rinkuser = 8
 end
 local DonisDown = "\n-› تم تنزيله من الرتب الاتيه : \n\n "
-if redis:sismember(Pearlin..':SUDO_BOT:',UserID) then 
+if redis:sismember(aian917..':SUDO_BOT:',UserID) then 
 DonisDown = DonisDown.."-›  تم تنزيله من Staff.️\n"
 end 
-if redis:sismember(Pearlin..':MONSHA_Group:'..ChatID,UserID) then 
+if redis:sismember(aian917..':MONSHA_Group:'..ChatID,UserID) then 
 DonisDown = DonisDown.."-›  تم تنزيله من المنشئ الاساسي .️\n"
 end 
-if redis:sismember(Pearlin..':MONSHA_BOT:'..ChatID,UserID) then 
+if redis:sismember(aian917..':MONSHA_BOT:'..ChatID,UserID) then 
 DonisDown = DonisDown.."-›  تم تنزيله من المنشئ .\n"
 end 
-if redis:sismember(Pearlin..'owners:'..ChatID,UserID) then 
+if redis:sismember(aian917..'owners:'..ChatID,UserID) then 
 DonisDown = DonisDown.."-›  تم تنزيله من المدير .️\n"
 end 
-if redis:sismember(Pearlin..'admins:'..ChatID,UserID) then 
+if redis:sismember(aian917..'admins:'..ChatID,UserID) then 
 DonisDown = DonisDown.."-›  تم تنزيله من الادمن .️\n"
 end 
-if redis:sismember(Pearlin..'whitelist:'..ChatID,UserID) then
+if redis:sismember(aian917..'whitelist:'..ChatID,UserID) then
 DonisDown = DonisDown.."-›  تم تنزيله من العضو مميز .\n"
 end
 
@@ -1964,43 +1964,43 @@ function sendpluse() sendMsg(ChatID,MsgID,"*-›* عذرا لا يمكن تنز�
 if rinkuser == 8 then return sendMsg(ChatID,MsgID,"-› المستخدم  ( "..NameUser.." )   \nانه بالتأكيد عضو .\n️")  end
 huk = false
 if msg.SudoBase then 
-redis:srem(Pearlin..':SUDO_BOT:',UserID)
-redis:srem(Pearlin..':MONSHA_Group:'..ChatID,UserID)
-redis:srem(Pearlin..':MONSHA_BOT:'..ChatID,UserID)
-redis:srem(Pearlin..'owners:'..ChatID,UserID)
-redis:srem(Pearlin..'admins:'..ChatID,UserID)
-redis:srem(Pearlin..'whitelist:'..ChatID,UserID)
+redis:srem(aian917..':SUDO_BOT:',UserID)
+redis:srem(aian917..':MONSHA_Group:'..ChatID,UserID)
+redis:srem(aian917..':MONSHA_BOT:'..ChatID,UserID)
+redis:srem(aian917..'owners:'..ChatID,UserID)
+redis:srem(aian917..'admins:'..ChatID,UserID)
+redis:srem(aian917..'whitelist:'..ChatID,UserID)
 elseif msg.SudoUser then 
 if rinkuser == 2 then return sendpluse() end
 if rinkuser < 2 then return senddwon() end
-redis:srem(Pearlin..':MONSHA_Group:'..ChatID,UserID)
-redis:srem(Pearlin..':MONSHA_BOT:'..ChatID,UserID)
-redis:srem(Pearlin..'owners:'..ChatID,UserID)
-redis:srem(Pearlin..'admins:'..ChatID,UserID)
-redis:srem(Pearlin..'whitelist:'..ChatID,UserID)
+redis:srem(aian917..':MONSHA_Group:'..ChatID,UserID)
+redis:srem(aian917..':MONSHA_BOT:'..ChatID,UserID)
+redis:srem(aian917..'owners:'..ChatID,UserID)
+redis:srem(aian917..'admins:'..ChatID,UserID)
+redis:srem(aian917..'whitelist:'..ChatID,UserID)
 elseif msg.SuperCreator then 
 if rinkuser == 3 then return sendpluse() end
 if rinkuser < 3 then return senddwon() end
-redis:srem(Pearlin..':MONSHA_BOT:'..ChatID,UserID)
-redis:srem(Pearlin..'owners:'..ChatID,UserID)
-redis:srem(Pearlin..'admins:'..ChatID,UserID)
-redis:srem(Pearlin..'whitelist:'..ChatID,UserID)
+redis:srem(aian917..':MONSHA_BOT:'..ChatID,UserID)
+redis:srem(aian917..'owners:'..ChatID,UserID)
+redis:srem(aian917..'admins:'..ChatID,UserID)
+redis:srem(aian917..'whitelist:'..ChatID,UserID)
 elseif msg.Creator then 
 if rinkuser == 4 then return sendpluse() end
 if rinkuser < 5 then return senddwon() end
-redis:srem(Pearlin..'owners:'..ChatID,UserID)
-redis:srem(Pearlin..'admins:'..ChatID,UserID)
-redis:srem(Pearlin..'whitelist:'..ChatID,UserID)
+redis:srem(aian917..'owners:'..ChatID,UserID)
+redis:srem(aian917..'admins:'..ChatID,UserID)
+redis:srem(aian917..'whitelist:'..ChatID,UserID)
 elseif msg.Director then 
 if rinkuser == 5 then return sendpluse() end
 if rinkuser < 5 then return senddwon() end
-redis:srem(Pearlin..'admins:'..ChatID,UserID)
-redis:srem(Pearlin..'whitelist:'..ChatID,UserID)
+redis:srem(aian917..'admins:'..ChatID,UserID)
+redis:srem(aian917..'whitelist:'..ChatID,UserID)
 elseif msg.Admin then 
 if rinkuser == 6 then return sendpluse() end
 if rinkuser < 6 then return senddwon() end
-redis:srem(Pearlin..'admins:'..ChatID,UserID)
-redis:srem(Pearlin..'whitelist:'..ChatID,UserID)
+redis:srem(aian917..'admins:'..ChatID,UserID)
+redis:srem(aian917..'whitelist:'..ChatID,UserID)
 else
 huk = true
 end
@@ -2014,52 +2014,52 @@ end
 function settingsall(msg)
 
 list_settings = "*-›*` اعدادات المجموعه :` \n"
-.."\n-› التعديل » "..(redis:get(Pearlin..'lock_edit'..msg.chat_id_) or 'false')
-.."\n-› الروابط » "..(redis:get(Pearlin..'lock_link'..msg.chat_id_) or 'false')
-.."\n#️-› التاك » "..(redis:get(Pearlin..'lock_tag'..msg.chat_id_) or 'false')
-.."\n-› المعرفات » "..(redis:get(Pearlin..'lock_username'..msg.chat_id_) or 'false')
-.."\n\n-› التكرار » "..(redis:get(Pearlin..'lock_flood'..msg.chat_id_) or 'false')
-.."\n-› الكلايش » "..(redis:get(Pearlin..'lock_spam'..msg.chat_id_) or 'false')
-.."\n-› الويب » "..(redis:get(Pearlin..'lock_webpage'..msg.chat_id_) or 'false')
-.."\n️-› الماركدوان » "..(redis:get(Pearlin..'lock_markdown'..msg.chat_id_) or 'false')
-.."\n-› البوتات بالطرد » "..(redis:get(Pearlin..'lock_bots_by_kick'..msg.chat_id_) or 'false')
-.."\n-› البوتات » "..(redis:get(Pearlin..'lock_bots'..msg.chat_id_) or 'false')
-.."\n-› عدد التكرار » "..(redis:get(Pearlin..'num_msg_max'..msg.chat_id_) or 'false')
-.."\n-› وقت التنظيف » "..(redis:get(Pearlin..':Timer_Cleaner:'..msg.chat_id_) or '6').." ساعة ."
+.."\n-› التعديل » "..(redis:get(aian917..'lock_edit'..msg.chat_id_) or 'false')
+.."\n-› الروابط » "..(redis:get(aian917..'lock_link'..msg.chat_id_) or 'false')
+.."\n#️-› التاك » "..(redis:get(aian917..'lock_tag'..msg.chat_id_) or 'false')
+.."\n-› المعرفات » "..(redis:get(aian917..'lock_username'..msg.chat_id_) or 'false')
+.."\n\n-› التكرار » "..(redis:get(aian917..'lock_flood'..msg.chat_id_) or 'false')
+.."\n-› الكلايش » "..(redis:get(aian917..'lock_spam'..msg.chat_id_) or 'false')
+.."\n-› الويب » "..(redis:get(aian917..'lock_webpage'..msg.chat_id_) or 'false')
+.."\n️-› الماركدوان » "..(redis:get(aian917..'lock_markdown'..msg.chat_id_) or 'false')
+.."\n-› البوتات بالطرد » "..(redis:get(aian917..'lock_bots_by_kick'..msg.chat_id_) or 'false')
+.."\n-› البوتات » "..(redis:get(aian917..'lock_bots'..msg.chat_id_) or 'false')
+.."\n-› عدد التكرار » "..(redis:get(aian917..'num_msg_max'..msg.chat_id_) or 'false')
+.."\n-› وقت التنظيف » "..(redis:get(aian917..':Timer_Cleaner:'..msg.chat_id_) or '6').." ساعة ."
 .."\n\n-›` اعدادات الوسائط :`\n"
-.."\n*-›* المتحركه » "..(redis:get(Pearlin..'mute_gif'..msg.chat_id_) or 'false')
-.."\n-› الدردشه » "..(redis:get(Pearlin..'mute_text'..msg.chat_id_) or 'false')
-.."\n️-› الانلاين » "..(redis:get(Pearlin..'mute_inline'..msg.chat_id_) or 'false')
-.."\n-› الالعاب » "..(redis:get(Pearlin..'mute_game'..msg.chat_id_) or 'false')
-.."\n-› الصور » "..(redis:get(Pearlin..'mute_photo'..msg.chat_id_) or 'false')
-.."\n-› الفيديو » "..(redis:get(Pearlin..'mute_video'..msg.chat_id_) or 'false')
-.."\n-› الصوت » "..(redis:get(Pearlin..'mute_audio'..msg.chat_id_) or 'false')
-.."\n\n-› البصمات » "..(redis:get(Pearlin..'mute_voice'..msg.chat_id_) or 'false')
-.."\n-› الملصقات » "..(redis:get(Pearlin..'mute_sticker'..msg.chat_id_) or 'false')
-.."\n-› الجهات » "..(redis:get(Pearlin..'mute_contact'..msg.chat_id_) or 'false')
-.."\n-› التوجيه » "..(redis:get(Pearlin..'mute_forward'..msg.chat_id_) or 'false')
-.."\n-› الموقع » "..(redis:get(Pearlin..'mute_location'..msg.chat_id_) or 'false')
-.."\n-› الملفات » "..(redis:get(Pearlin..'mute_document'..msg.chat_id_) or 'false')
-.."\n-› الاشعارات » "..(redis:get(Pearlin..'mute_tgservice'..msg.chat_id_) or 'false')
-.."\n-› الفشار » "..(redis:get(Pearlin..'lock_mmno3'..msg.chat_id_) or 'false')
-.."\n-› الفارسيه » "..(redis:get(Pearlin..'lock_pharsi'..msg.chat_id_) or 'false')
-.."\n-› الانكليزيه » "..(redis:get(Pearlin..'lock_lang'..msg.chat_id_) or 'false')
-.."\n-› الاضافه » "..(redis:get(Pearlin..'lock_Add'..msg.chat_id_) or 'false')
+.."\n*-›* المتحركه » "..(redis:get(aian917..'mute_gif'..msg.chat_id_) or 'false')
+.."\n-› الدردشه » "..(redis:get(aian917..'mute_text'..msg.chat_id_) or 'false')
+.."\n️-› الانلاين » "..(redis:get(aian917..'mute_inline'..msg.chat_id_) or 'false')
+.."\n-› الالعاب » "..(redis:get(aian917..'mute_game'..msg.chat_id_) or 'false')
+.."\n-› الصور » "..(redis:get(aian917..'mute_photo'..msg.chat_id_) or 'false')
+.."\n-› الفيديو » "..(redis:get(aian917..'mute_video'..msg.chat_id_) or 'false')
+.."\n-› الصوت » "..(redis:get(aian917..'mute_audio'..msg.chat_id_) or 'false')
+.."\n\n-› البصمات » "..(redis:get(aian917..'mute_voice'..msg.chat_id_) or 'false')
+.."\n-› الملصقات » "..(redis:get(aian917..'mute_sticker'..msg.chat_id_) or 'false')
+.."\n-› الجهات » "..(redis:get(aian917..'mute_contact'..msg.chat_id_) or 'false')
+.."\n-› التوجيه » "..(redis:get(aian917..'mute_forward'..msg.chat_id_) or 'false')
+.."\n-› الموقع » "..(redis:get(aian917..'mute_location'..msg.chat_id_) or 'false')
+.."\n-› الملفات » "..(redis:get(aian917..'mute_document'..msg.chat_id_) or 'false')
+.."\n-› الاشعارات » "..(redis:get(aian917..'mute_tgservice'..msg.chat_id_) or 'false')
+.."\n-› الفشار » "..(redis:get(aian917..'lock_mmno3'..msg.chat_id_) or 'false')
+.."\n-› الفارسيه » "..(redis:get(aian917..'lock_pharsi'..msg.chat_id_) or 'false')
+.."\n-› الانكليزيه » "..(redis:get(aian917..'lock_lang'..msg.chat_id_) or 'false')
+.."\n-› الاضافه » "..(redis:get(aian917..'lock_Add'..msg.chat_id_) or 'false')
 
 local eueuf = "\n\n*-›*` اعدادات اخرى : `"
-.."\n*️-›* الترحيب » "..(redis:get(Pearlin..'welcome:get'..msg.chat_id_) or 'false')
-.."\n*-›*  الردود » "..(redis:get(Pearlin..'replay'..msg.chat_id_) or 'false')
-.."\n*-›*  التحذير » "..(redis:get(Pearlin..'lock_woring'..msg.chat_id_) or 'false')
-.."\n*-›* الايدي » "..(redis:get(Pearlin..'lock_id'..msg.chat_id_) or 'false')
-.."\n*-›* الرابط » "..(redis:get(Pearlin..'lock_linkk'..msg.chat_id_) or 'false')
-.."\n*-›* المغادره » "..(redis:get(Pearlin..'lock_leftgroup'..msg.chat_id_) or 'false')
-.."\n*-›* الحظر » "..(redis:get(Pearlin..'lock_KickBan'..msg.chat_id_) or 'false')
-.."\n*-›* الحمايه » "..(redis:get(Pearlin..'antiedit'..msg.chat_id_) or 'false')
-.."\n*-›* التاك للكل » "..(redis:get(Pearlin..'lock_takkl'..msg.chat_id_) or 'false')
-.."\n*-›* الايدي بالصوره » "..(redis:get(Pearlin..'idphoto'..msg.chat_id_) or 'false')
-.."\n*-›* التحقق » "..(redis:get(Pearlin.."lock_check"..msg.chat_id_) or 'false')
-.."\n*-›* التنظيف التلقائي » "..(redis:get(Pearlin.."lock_cleaner"..msg.chat_id_) or 'false')
-.."\n*-›* ردود السورس » "..(redis:get(Pearlin.."lock_rdodSource"..msg.chat_id_) or 'false')
+.."\n*️-›* الترحيب » "..(redis:get(aian917..'welcome:get'..msg.chat_id_) or 'false')
+.."\n*-›*  الردود » "..(redis:get(aian917..'replay'..msg.chat_id_) or 'false')
+.."\n*-›*  التحذير » "..(redis:get(aian917..'lock_woring'..msg.chat_id_) or 'false')
+.."\n*-›* الايدي » "..(redis:get(aian917..'lock_id'..msg.chat_id_) or 'false')
+.."\n*-›* الرابط » "..(redis:get(aian917..'lock_linkk'..msg.chat_id_) or 'false')
+.."\n*-›* المغادره » "..(redis:get(aian917..'lock_leftgroup'..msg.chat_id_) or 'false')
+.."\n*-›* الحظر » "..(redis:get(aian917..'lock_KickBan'..msg.chat_id_) or 'false')
+.."\n*-›* الحمايه » "..(redis:get(aian917..'antiedit'..msg.chat_id_) or 'false')
+.."\n*-›* التاك للكل » "..(redis:get(aian917..'lock_takkl'..msg.chat_id_) or 'false')
+.."\n*-›* الايدي بالصوره » "..(redis:get(aian917..'idphoto'..msg.chat_id_) or 'false')
+.."\n*-›* التحقق » "..(redis:get(aian917.."lock_check"..msg.chat_id_) or 'false')
+.."\n*-›* التنظيف التلقائي » "..(redis:get(aian917.."lock_cleaner"..msg.chat_id_) or 'false')
+.."\n*-›* ردود السورس » "..(redis:get(aian917.."lock_rdodSource"..msg.chat_id_) or 'false')
 list_settings = list_settings:gsub('true', '{ مقفول }')
 list_settings = list_settings:gsub('false', '{ مفتوح }')
 eueuf = eueuf:gsub('true', '{ مفعل }')
@@ -2069,23 +2069,23 @@ end
 
 function settings(msg)
 list_settings = "-›` اعدادات المجموعه :` "
-.."\n\n*#️-›* التاك » "..(redis:get(Pearlin..'lock_tag'..msg.chat_id_) or 'false')
-.."\n*-›* المعرفات » "..(redis:get(Pearlin..'lock_username'..msg.chat_id_) or 'false')
-.."\n*-›* التعديل » "..(redis:get(Pearlin..'lock_edit'..msg.chat_id_) or 'false')
-.."\n*-›* الروابط » "..(redis:get(Pearlin..'lock_link'..msg.chat_id_) or 'false')
-.."\n\n*-›* التكرار » "..(redis:get(Pearlin..'lock_flood'..msg.chat_id_) or 'false')
-.."\n*-›* الكلايش » "..(redis:get(Pearlin..'lock_spam'..msg.chat_id_) or 'false')
-.."\n\n*-›* الويب » "..(redis:get(Pearlin..'lock_webpage'..msg.chat_id_) or 'false')
-.."\n*️-›* الماركدوان » "..(redis:get(Pearlin..'lock_markdown'..msg.chat_id_) or 'false')
-.."\n*-›* البوتات بالطرد » "..(redis:get(Pearlin..'lock_bots_by_kick'..msg.chat_id_) or 'false')
-.."\n*-›* البوتات » "..(redis:get(Pearlin..'lock_bots'..msg.chat_id_) or 'false')
-.."\n*-›* عدد التكرار » "..(redis:get(Pearlin..'num_msg_max'..msg.chat_id_) or 'false')
+.."\n\n*#️-›* التاك » "..(redis:get(aian917..'lock_tag'..msg.chat_id_) or 'false')
+.."\n*-›* المعرفات » "..(redis:get(aian917..'lock_username'..msg.chat_id_) or 'false')
+.."\n*-›* التعديل » "..(redis:get(aian917..'lock_edit'..msg.chat_id_) or 'false')
+.."\n*-›* الروابط » "..(redis:get(aian917..'lock_link'..msg.chat_id_) or 'false')
+.."\n\n*-›* التكرار » "..(redis:get(aian917..'lock_flood'..msg.chat_id_) or 'false')
+.."\n*-›* الكلايش » "..(redis:get(aian917..'lock_spam'..msg.chat_id_) or 'false')
+.."\n\n*-›* الويب » "..(redis:get(aian917..'lock_webpage'..msg.chat_id_) or 'false')
+.."\n*️-›* الماركدوان » "..(redis:get(aian917..'lock_markdown'..msg.chat_id_) or 'false')
+.."\n*-›* البوتات بالطرد » "..(redis:get(aian917..'lock_bots_by_kick'..msg.chat_id_) or 'false')
+.."\n*-›* البوتات » "..(redis:get(aian917..'lock_bots'..msg.chat_id_) or 'false')
+.."\n*-›* عدد التكرار » "..(redis:get(aian917..'num_msg_max'..msg.chat_id_) or 'false')
 .."\n\n*-›*` اعدادات التقـييد :`\n"
-.."\n*-›* التقييد بالتوجيه » "..(redis:get(Pearlin..':tqeed_fwd:'..msg.chat_id_) or 'false')
-.."\n*-›* التقييد بالصور » "..(redis:get(Pearlin..':tqeed_photo:'..msg.chat_id_) or 'false')
-.."\n*-›* التقييد بالروابط » "..(redis:get(Pearlin..':tqeed_link:'..msg.chat_id_) or 'false')
-.."\n*-›* التقييد بالمتحركه » "..(redis:get(Pearlin..':tqeed_gif:'..msg.chat_id_) or 'false')
-.."\n*-›* التقييد الفيديو » "..(redis:get(Pearlin..':tqeed_video:'..msg.chat_id_) or 'false')
+.."\n*-›* التقييد بالتوجيه » "..(redis:get(aian917..':tqeed_fwd:'..msg.chat_id_) or 'false')
+.."\n*-›* التقييد بالصور » "..(redis:get(aian917..':tqeed_photo:'..msg.chat_id_) or 'false')
+.."\n*-›* التقييد بالروابط » "..(redis:get(aian917..':tqeed_link:'..msg.chat_id_) or 'false')
+.."\n*-›* التقييد بالمتحركه » "..(redis:get(aian917..':tqeed_gif:'..msg.chat_id_) or 'false')
+.."\n*-›* التقييد الفيديو » "..(redis:get(aian917..':tqeed_video:'..msg.chat_id_) or 'false')
 list_settings = list_settings:gsub('true', '{ مقفول }')
 list_settings = list_settings:gsub('false', '{ مفتوح }')
 return sendMsg(msg.chat_id_, msg.id_,'\n'..list_settings..'\n')
@@ -2093,21 +2093,21 @@ end
 
 function media(msg)
 list_settings = "*-›*` اعدادات الوسائط:`\n"
-.."\n*-›* المتحركه » "..(redis:get(Pearlin..'mute_gif'..msg.chat_id_) or 'false')
-.."\n*-›* الدردشه » "..(redis:get(Pearlin..'mute_text'..msg.chat_id_) or 'false')
-.."\n*️-›* الانلاين » "..(redis:get(Pearlin..'mute_inline'..msg.chat_id_) or 'false')
-.."\n*-›* الالعاب » "..(redis:get(Pearlin..'mute_game'..msg.chat_id_) or 'false')
-.."\n*-›* الصور » "..(redis:get(Pearlin..'mute_photo'..msg.chat_id_) or 'false')
-.."\n*-›* الفيديو » "..(redis:get(Pearlin..'mute_video'..msg.chat_id_) or 'false')
-.."\n*-›* الصوت » "..(redis:get(Pearlin..'mute_audio'..msg.chat_id_) or 'false')
-.."\n\n*-›* البصمات » "..(redis:get(Pearlin..'mute_voice'..msg.chat_id_) or 'false')
-.."\n*-›* الملصقات » "..(redis:get(Pearlin..'mute_sticker'..msg.chat_id_) or 'false')
-.."\n*-›* الجهات » "..(redis:get(Pearlin..'mute_contact'..msg.chat_id_) or 'false')
-.."\n*-›* التوجيه » "..(redis:get(Pearlin..'mute_forward'..msg.chat_id_) or 'false')
-.."\n*-›* الموقع » "..(redis:get(Pearlin..'mute_location'..msg.chat_id_) or 'false')
-.."\n*-›* الملفات » "..(redis:get(Pearlin..'mute_document'..msg.chat_id_) or 'false')
-.."\n*-›* الاشعارات » "..(redis:get(Pearlin..'mute_tgservice'..msg.chat_id_) or 'false')
-.."\n*-›* الكيبورد » "..(redis:get(Pearlin..'mute_keyboard'..msg.chat_id_) or 'false')
+.."\n*-›* المتحركه » "..(redis:get(aian917..'mute_gif'..msg.chat_id_) or 'false')
+.."\n*-›* الدردشه » "..(redis:get(aian917..'mute_text'..msg.chat_id_) or 'false')
+.."\n*️-›* الانلاين » "..(redis:get(aian917..'mute_inline'..msg.chat_id_) or 'false')
+.."\n*-›* الالعاب » "..(redis:get(aian917..'mute_game'..msg.chat_id_) or 'false')
+.."\n*-›* الصور » "..(redis:get(aian917..'mute_photo'..msg.chat_id_) or 'false')
+.."\n*-›* الفيديو » "..(redis:get(aian917..'mute_video'..msg.chat_id_) or 'false')
+.."\n*-›* الصوت » "..(redis:get(aian917..'mute_audio'..msg.chat_id_) or 'false')
+.."\n\n*-›* البصمات » "..(redis:get(aian917..'mute_voice'..msg.chat_id_) or 'false')
+.."\n*-›* الملصقات » "..(redis:get(aian917..'mute_sticker'..msg.chat_id_) or 'false')
+.."\n*-›* الجهات » "..(redis:get(aian917..'mute_contact'..msg.chat_id_) or 'false')
+.."\n*-›* التوجيه » "..(redis:get(aian917..'mute_forward'..msg.chat_id_) or 'false')
+.."\n*-›* الموقع » "..(redis:get(aian917..'mute_location'..msg.chat_id_) or 'false')
+.."\n*-›* الملفات » "..(redis:get(aian917..'mute_document'..msg.chat_id_) or 'false')
+.."\n*-›* الاشعارات » "..(redis:get(aian917..'mute_tgservice'..msg.chat_id_) or 'false')
+.."\n*-›* الكيبورد » "..(redis:get(aian917..'mute_keyboard'..msg.chat_id_) or 'false')
 list_settings = list_settings:gsub('true', '{ مقفول }')
 list_settings = list_settings:gsub('false', '{ مفتوح }')
 return sendMsg(msg.chat_id_,msg.id_,'\n'..list_settings..'\n')
