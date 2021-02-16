@@ -5320,32 +5320,7 @@ end
 --================================{{  Reply Bot  }} ===================================
 
 
-elseif Text=="اريد رابط الحذف" or Text=="اريد رابط حذف" or Text=="رابط حذف" or Text=="رابط الحذف" then
-return sendMsg(msg.chat_id_,msg.id_,[[
-*-›* رابط حذف حـساب التليقرام .
--› لتتندم فڪر قبل ڪلشي  
-️-› بالتـوفيـق عزيزي ...
- ـ  https://telegram.org/deactivate
-]] )
---=====================================
-elseif Text== "" or Text== "" or Text=="" or Text== "" or Text=="" or Text== "" or Text=="" then
-if msg.SudoUser then  
-return sendMsg(msg.chat_id_,msg.id_,"تـامر امر .")
-elseif msg.Creator then 
-return sendMsg(msg.chat_id_,msg.id_,"ابشـرعيني.")
-elseif msg.Director then 
-return sendMsg(msg.chat_id_,msg.id_,"حاضـر عييني.")
-elseif msg.Admin then 
-return sendMsg(msg.chat_id_,msg.id_,"اكـيه يعيني .")
-else 
-return sendMsg(msg.chat_id_,msg.id_,"ابـشريقلبي.")
-end 
-end 
 
-
-
-
-end
 
 
 ------------------------------{ End Replay Send }------------------------
