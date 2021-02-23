@@ -137,7 +137,7 @@ local NameUser   = Hyper_Link_Name(data)
 if redis:get(aian917.."lock_takkl"..msg.chat_id_) then 
 return sendMsg(msg.chat_id_,msg.id_,"-› تم بالتأكيد تفعيل تاك للكل    \n-› المستخدم ( "..NameUser.." )  ️" ) 
 else redis:set(aian917.."lock_takkl"..msg.chat_id_,true)
-return sendMsg(msg.chat_id_,msg.id_,"-› تم تفعيل الحظر تاك للكل   \n-› المستخدم ( "..NameUser.." )  ️" ) 
+return sendMsg(msg.chat_id_,msg.id_,"-› تم تفعيل المنشن للكل   \n-› المستخدم ( "..NameUser.." )  ️" ) 
 end
 end,{msg=msg})
 end
@@ -891,10 +891,10 @@ GetUserID(msg.sender_user_id_,function(arg,data)
 msg = arg.msg 
 local NameUser   = Hyper_Link_Name(data)
 if redis:get(aian917.."lock_tag"..msg.chat_id_) then
-return sendMsg(msg.chat_id_,msg.id_,"-› تم بالتأكيد قفل التاك (#)    \n-› المستخدم ( "..NameUser.." )  ️" ) 
+return sendMsg(msg.chat_id_,msg.id_,"-› تم بالتأكيد قفل الهشتاق (#)    \n-› المستخدم ( "..NameUser.." )  ️" ) 
 else
 redis:set(aian917.."lock_tag"..msg.chat_id_,true)
-return sendMsg(msg.chat_id_,msg.id_,"-› تم قفل التاك (#) بنجاح   \n-› المستخدم ( "..NameUser.." )  ️" ) 
+return sendMsg(msg.chat_id_,msg.id_,"-› تم قفل الهشتاق (#) بنجاح   \n-› المستخدم ( "..NameUser.." )  ️" ) 
 end
 end,{msg=msg})
 end
@@ -906,10 +906,10 @@ GetUserID(msg.sender_user_id_,function(arg,data)
 msg = arg.msg 
 local NameUser   = Hyper_Link_Name(data)
 if not redis:get(aian917.."lock_tag"..msg.chat_id_) then
-return sendMsg(msg.chat_id_,msg.id_,"-› تم بالتأكيد فتح التاك (#)    \n-› المستخدم ( "..NameUser.." )  ️" ) 
+return sendMsg(msg.chat_id_,msg.id_,"-› تم بالتأكيد فتح الهشتاق (#)    \n-› المستخدم ( "..NameUser.." )  ️" ) 
 else 
 redis:del(aian917.."lock_tag"..msg.chat_id_)
-return sendMsg(msg.chat_id_,msg.id_,"-› تم فتح التاك (#) بنجاح   \n-› المستخدم ( "..NameUser.." )  ️" ) 
+return sendMsg(msg.chat_id_,msg.id_,"-› تم فتح الهشتاق (#) بنجاح   \n-› المستخدم ( "..NameUser.." )  ️" ) 
 end
 end,{msg=msg})
 end
