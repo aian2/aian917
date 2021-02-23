@@ -670,7 +670,7 @@ Name = utf8.gsub(Name,"ٌ","")
 Name = utf8.gsub(Name,"͜","")
 Name = utf8.gsub(Name,"ꪸ","")
 Name = utf8.gsub(Name,"ۂ","")
-Name = utf8.gsub(Name,"»","")
+Name = utf8.gsub(Name,"-","")
 Name = utf8.gsub(Name,"̚","")
 Name = utf8.gsub(Name,"𖣁","")
 Name = utf8.gsub(Name,"۫","")
@@ -902,7 +902,7 @@ end
 --================================{{  List Sudoer  }} ===================================
 
 function TagAll(msg)
-message = "قائمه التاكـ : \n\n"
+message = "قائمه المنشنـ : \n\n"
 local monshaas = redis:smembers(aian917..':MONSHA_Group:'..msg.chat_id_)
 local monsha = redis:smembers(aian917..':MONSHA_BOT:'..msg.chat_id_)
 local Owners = redis:smembers(aian917..'owners:'..msg.chat_id_)
@@ -979,9 +979,9 @@ for k,v in pairs(list) do
 local info  = redis:hgetall(aian917..'username:'..v)
 local count = redis:scard(aian917..'mtwr_count'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
-message = message ..k.."- ["..info.username..'] » (`' ..v.. '`) \n'
+message = message ..k.."- ["..info.username..'] - (`' ..v.. '`) \n'
 else
-message = message ..k.. '- ['..info.username..'](t.me/Ooko0) l » (`' ..v.. '`) \n'
+message = message ..k.. '- ['..info.username..'](t.me/Ooko0) l - (`' ..v.. '`) \n'
 end
 end 
 end
@@ -1005,9 +1005,9 @@ else
 for k,v in pairs(monsha) do
 local info = redis:hgetall(aian917..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
-message = message ..k.."- ["..info.username..'] » (`' ..v.. '`) \n'
+message = message ..k.."- ["..info.username..'] - (`' ..v.. '`) \n'
 else
-message = message ..k.. '- ['..info.username..'](t.me/Ooko0) l » (`' ..v.. '`) \n'
+message = message ..k.. '- ['..info.username..'](t.me/Ooko0) l - (`' ..v.. '`) \n'
 end
 end
 end
@@ -1020,9 +1020,9 @@ else
 for k,v in pairs(monsha) do
 local info = redis:hgetall(aian917..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
-message = message ..k.."- ["..info.username..'] » (`' ..v.. '`) \n'
+message = message ..k.."- ["..info.username..'] - (`' ..v.. '`) \n'
 else
-message = message ..k.. '- ['..info.username..'](t.me/Ooko0) l » (`' ..v.. '`) \n'
+message = message ..k.. '- ['..info.username..'](t.me/Ooko0) l - (`' ..v.. '`) \n'
 end
 end
 end
@@ -1039,9 +1039,9 @@ else
 for k,v in pairs(list) do
 local info = redis:hgetall(aian917..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
-message = message ..k.. '- ['..(info.username or '')..'] » (`' ..v.. '`) \n'
+message = message ..k.. '- ['..(info.username or '')..'] - (`' ..v.. '`) \n'
 else
-message = message ..k.. '- ['..info.username..'](t.me/Ooko0) l » (`' ..v.. '`) \n'
+message = message ..k.. '- ['..info.username..'](t.me/Ooko0) l - (`' ..v.. '`) \n'
 end
 end
 end
@@ -1061,9 +1061,9 @@ message = '*-› قائمه الادمنيه .*\n\n'
 for k,v in pairs(list) do
 local info = redis:hgetall(aian917..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
-message = message ..k.. '-l ['..info.username..'] » (`' ..v.. '`) \n'
+message = message ..k.. '-l ['..info.username..'] - (`' ..v.. '`) \n'
 else
-message = message ..k.. '-l ['..info.username..'](t.me/Ooko0) l » (`' ..v.. '`) \n'
+message = message ..k.. '-l ['..info.username..'](t.me/Ooko0) l - (`' ..v.. '`) \n'
 end
 end
 if utf8.len(message) > 4096 then
@@ -1082,9 +1082,9 @@ message = '*-›* قائمه الاعضاء المميزين .\n'
 for k,v in pairs(list) do
 local info = redis:hgetall(aian917..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
-message = message ..k.. '- ['..info.username..'] » (`' ..v.. '`) \n'
+message = message ..k.. '- ['..info.username..'] - (`' ..v.. '`) \n'
 else
-message = message ..k.. '- ['..info.username..'](t.me/Ooko0) l » (`' ..v.. '`) \n'
+message = message ..k.. '- ['..info.username..'](t.me/Ooko0) l - (`' ..v.. '`) \n'
 end
 end
 if utf8.len(message) > 4096 then
@@ -1112,9 +1112,9 @@ message = '*-›*  قائمه الاعضاء المكتومين .\n'
 for k,v in pairs(list) do
 local info = redis:hgetall(aian917..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
-message = message ..k.. '- ['..info.username..'] » (`' ..v.. '`) \n'
+message = message ..k.. '- ['..info.username..'] - (`' ..v.. '`) \n'
 else
-message = message ..k.. '- ['..info.username..'](t.me/Ooko0) l » (`' ..v.. '`) \n'
+message = message ..k.. '- ['..info.username..'](t.me/Ooko0) l - (`' ..v.. '`) \n'
 end
 end
 if utf8.len(message) > 4096 then
@@ -1143,9 +1143,9 @@ message = '*-›* قائمه الاعضاء المحظورين .\n'
 for k,v in pairs(list) do
 local info = redis:hgetall(aian917..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
-message = message ..k.. '- ['..info.username..'] » (`' ..v.. '`) \n'
+message = message ..k.. '- ['..info.username..'] - (`' ..v.. '`) \n'
 else
-message = message ..k.. '- ['..info.username..'](t.me/Ooko0) l » (`' ..v.. '`) \n'
+message = message ..k.. '- ['..info.username..'](t.me/Ooko0) l - (`' ..v.. '`) \n'
 end 
 end 
 if utf8.len(message) > 4096 then
@@ -1173,9 +1173,9 @@ message = '*-›* قائمه المحظورين عام .\n'
 for k,v in pairs(list) do
 local info = redis:hgetall(aian917..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
-message = message ..k.. '- ['..info.username..'] » (`' ..v.. '`) \n'
+message = message ..k.. '- ['..info.username..'] - (`' ..v.. '`) \n'
 else
-message = message ..k.. '- ['..info.username..'](t.me/Ooko0) l » (`' ..v.. '`) \n'
+message = message ..k.. '- ['..info.username..'](t.me/Ooko0) l - (`' ..v.. '`) \n'
 end
 end 
 if utf8.len(message) > 4096 then
@@ -1333,7 +1333,7 @@ end
 local Save_Data = io.open("./inc/"..Bot_User..".json","w+")
 Save_Data:write(json_data..'}}')
 Save_Data:close()
-sendDocument(msg.chat_id_,msg.id_,"./inc/"..Bot_User..".json","-› ملف النسخه الاحتياطيه ...\n-› المجموعات » { "..#All_Groups_ID.." }\n-› للبوت » "..Bot_User.."\n-› التاريخ » "..os.date("%Y/%m/%d").."\n",dl_cb,nil)
+sendDocument(msg.chat_id_,msg.id_,"./inc/"..Bot_User..".json","-› ملف النسخه الاحتياطيه ...\n-› المجموعات - { "..#All_Groups_ID.." }\n-› للبوت - "..Bot_User.."\n-› التاريخ - "..os.date("%Y/%m/%d").."\n",dl_cb,nil)
 end
 
 function chat_list(msg)
@@ -1705,11 +1705,11 @@ if cmd == "whois" then
 GetChatMember(ChatID,UserID,function(arg,data1)
 local namei = data.first_name_..' '..(data.last_name_ or "")
 if data.username_ then useri = '@'..data.username_ else useri = " لا يوجد " end
-return SendMention(ChatID,UserID,MsgID,'-› الاسم » '..namei..'\n'
-..'-› الايدي » {'..UserID..'} \n'
-..'-› المعرف » '..useri..'\n'
-..'-› الرتبه » '..Getrtba(UserID,ChatID)..'\n'
-..'️-› نوع الكشف » بالايدي\n',13,utf8.len(namei))
+return SendMention(ChatID,UserID,MsgID,'-› الاسم - '..namei..'\n'
+..'-› الايدي - {'..UserID..'} \n'
+..'-› المعرف - '..useri..'\n'
+..'-› الرتبه - '..Getrtba(UserID,ChatID)..'\n'
+..'️-› نوع الكشف - بالايدي\n',13,utf8.len(namei))
 end)
 end
 
@@ -1904,7 +1904,7 @@ local edited = redis:get(aian917..':edited:'..ChatID..':'..UserID) or 0
 local content = redis:get(aian917..':adduser:'..ChatID..':'..UserID) or 0
 if data.username_ then UserNameID = "@"..data.username_ else UserNameID = "لا يوجد" end  
 
-sendMsg(ChatID,MsgID,"-› ايديه » `"..UserID.."`\n-› رسائله » "..maseegs.."\n-› معرفه » ["..UserNameID.."]\n-› تفاعله » "..Get_Ttl(maseegs).."\n-› رتبته » "..Getrtba(UserID,ChatID).."\n-› تعديلاته » "..edited.."\n-› جهاته » "..content.."") 
+sendMsg(ChatID,MsgID,"-› ايديه - `"..UserID.."`\n-› رسائله - "..maseegs.."\n-› معرفه - ["..UserNameID.."]\n-› تفاعله - "..Get_Ttl(maseegs).."\n-› رتبته - "..Getrtba(UserID,ChatID).."\n-› تعديلاته - "..edited.."\n-› جهاته - "..content.."") 
 end
 
 if cmd == "rfaqud" then  
@@ -2014,52 +2014,52 @@ end
 function settingsall(msg)
 
 list_settings = "*-›*` اعدادات المجموعه :` \n"
-.."\n-› التعديل » "..(redis:get(aian917..'lock_edit'..msg.chat_id_) or 'false')
-.."\n-› الروابط » "..(redis:get(aian917..'lock_link'..msg.chat_id_) or 'false')
-.."\n#️-› التاك » "..(redis:get(aian917..'lock_tag'..msg.chat_id_) or 'false')
-.."\n-› المعرفات » "..(redis:get(aian917..'lock_username'..msg.chat_id_) or 'false')
-.."\n\n-› التكرار » "..(redis:get(aian917..'lock_flood'..msg.chat_id_) or 'false')
-.."\n-› الكلايش » "..(redis:get(aian917..'lock_spam'..msg.chat_id_) or 'false')
-.."\n-› الويب » "..(redis:get(aian917..'lock_webpage'..msg.chat_id_) or 'false')
-.."\n️-› الماركدوان » "..(redis:get(aian917..'lock_markdown'..msg.chat_id_) or 'false')
-.."\n-› البوتات بالطرد » "..(redis:get(aian917..'lock_bots_by_kick'..msg.chat_id_) or 'false')
-.."\n-› البوتات » "..(redis:get(aian917..'lock_bots'..msg.chat_id_) or 'false')
-.."\n-› عدد التكرار » "..(redis:get(aian917..'num_msg_max'..msg.chat_id_) or 'false')
-.."\n-› وقت التنظيف » "..(redis:get(aian917..':Timer_Cleaner:'..msg.chat_id_) or '6').." ساعة ."
+.."\n-› التعديل - "..(redis:get(aian917..'lock_edit'..msg.chat_id_) or 'false')
+.."\n-› الروابط - "..(redis:get(aian917..'lock_link'..msg.chat_id_) or 'false')
+.."\n#️-› المنشن - "..(redis:get(aian917..'lock_tag'..msg.chat_id_) or 'false')
+.."\n-› المعرفات - "..(redis:get(aian917..'lock_username'..msg.chat_id_) or 'false')
+.."\n\n-› التكرار - "..(redis:get(aian917..'lock_flood'..msg.chat_id_) or 'false')
+.."\n-› الكلايش - "..(redis:get(aian917..'lock_spam'..msg.chat_id_) or 'false')
+.."\n-› الويب - "..(redis:get(aian917..'lock_webpage'..msg.chat_id_) or 'false')
+.."\n️-› الماركدوان - "..(redis:get(aian917..'lock_markdown'..msg.chat_id_) or 'false')
+.."\n-› البوتات بالطرد - "..(redis:get(aian917..'lock_bots_by_kick'..msg.chat_id_) or 'false')
+.."\n-› البوتات - "..(redis:get(aian917..'lock_bots'..msg.chat_id_) or 'false')
+.."\n-› عدد التكرار - "..(redis:get(aian917..'num_msg_max'..msg.chat_id_) or 'false')
+.."\n-› وقت التنظيف - "..(redis:get(aian917..':Timer_Cleaner:'..msg.chat_id_) or '6').." ساعة ."
 .."\n\n-›` اعدادات الوسائط :`\n"
-.."\n*-›* المتحركه » "..(redis:get(aian917..'mute_gif'..msg.chat_id_) or 'false')
-.."\n-› الدردشه » "..(redis:get(aian917..'mute_text'..msg.chat_id_) or 'false')
-.."\n️-› الانلاين » "..(redis:get(aian917..'mute_inline'..msg.chat_id_) or 'false')
-.."\n-› الالعاب » "..(redis:get(aian917..'mute_game'..msg.chat_id_) or 'false')
-.."\n-› الصور » "..(redis:get(aian917..'mute_photo'..msg.chat_id_) or 'false')
-.."\n-› الفيديو » "..(redis:get(aian917..'mute_video'..msg.chat_id_) or 'false')
-.."\n-› الصوت » "..(redis:get(aian917..'mute_audio'..msg.chat_id_) or 'false')
-.."\n\n-› البصمات » "..(redis:get(aian917..'mute_voice'..msg.chat_id_) or 'false')
-.."\n-› الملصقات » "..(redis:get(aian917..'mute_sticker'..msg.chat_id_) or 'false')
-.."\n-› الجهات » "..(redis:get(aian917..'mute_contact'..msg.chat_id_) or 'false')
-.."\n-› التوجيه » "..(redis:get(aian917..'mute_forward'..msg.chat_id_) or 'false')
-.."\n-› الموقع » "..(redis:get(aian917..'mute_location'..msg.chat_id_) or 'false')
-.."\n-› الملفات » "..(redis:get(aian917..'mute_document'..msg.chat_id_) or 'false')
-.."\n-› الاشعارات » "..(redis:get(aian917..'mute_tgservice'..msg.chat_id_) or 'false')
-.."\n-› الفشار » "..(redis:get(aian917..'lock_mmno3'..msg.chat_id_) or 'false')
-.."\n-› الفارسيه » "..(redis:get(aian917..'lock_pharsi'..msg.chat_id_) or 'false')
-.."\n-› الانكليزيه » "..(redis:get(aian917..'lock_lang'..msg.chat_id_) or 'false')
-.."\n-› الاضافه » "..(redis:get(aian917..'lock_Add'..msg.chat_id_) or 'false')
+.."\n*-›* المتحركه - "..(redis:get(aian917..'mute_gif'..msg.chat_id_) or 'false')
+.."\n-› الدردشه - "..(redis:get(aian917..'mute_text'..msg.chat_id_) or 'false')
+.."\n️-› الانلاين - "..(redis:get(aian917..'mute_inline'..msg.chat_id_) or 'false')
+.."\n-› الالعاب - "..(redis:get(aian917..'mute_game'..msg.chat_id_) or 'false')
+.."\n-› الصور - "..(redis:get(aian917..'mute_photo'..msg.chat_id_) or 'false')
+.."\n-› الفيديو - "..(redis:get(aian917..'mute_video'..msg.chat_id_) or 'false')
+.."\n-› الصوت - "..(redis:get(aian917..'mute_audio'..msg.chat_id_) or 'false')
+.."\n\n-› البصمات - "..(redis:get(aian917..'mute_voice'..msg.chat_id_) or 'false')
+.."\n-› الملصقات - "..(redis:get(aian917..'mute_sticker'..msg.chat_id_) or 'false')
+.."\n-› الجهات - "..(redis:get(aian917..'mute_contact'..msg.chat_id_) or 'false')
+.."\n-› التوجيه - "..(redis:get(aian917..'mute_forward'..msg.chat_id_) or 'false')
+.."\n-› الموقع - "..(redis:get(aian917..'mute_location'..msg.chat_id_) or 'false')
+.."\n-› الملفات - "..(redis:get(aian917..'mute_document'..msg.chat_id_) or 'false')
+.."\n-› الاشعارات - "..(redis:get(aian917..'mute_tgservice'..msg.chat_id_) or 'false')
+.."\n-› الفشار - "..(redis:get(aian917..'lock_mmno3'..msg.chat_id_) or 'false')
+.."\n-› الفارسيه - "..(redis:get(aian917..'lock_pharsi'..msg.chat_id_) or 'false')
+.."\n-› الانكليزيه - "..(redis:get(aian917..'lock_lang'..msg.chat_id_) or 'false')
+.."\n-› الاضافه - "..(redis:get(aian917..'lock_Add'..msg.chat_id_) or 'false')
 
 local eueuf = "\n\n*-›*` اعدادات اخرى : `"
-.."\n*️-›* الترحيب » "..(redis:get(aian917..'welcome:get'..msg.chat_id_) or 'false')
-.."\n*-›*  الردود » "..(redis:get(aian917..'replay'..msg.chat_id_) or 'false')
-.."\n*-›*  التحذير » "..(redis:get(aian917..'lock_woring'..msg.chat_id_) or 'false')
-.."\n*-›* الايدي » "..(redis:get(aian917..'lock_id'..msg.chat_id_) or 'false')
-.."\n*-›* الرابط » "..(redis:get(aian917..'lock_linkk'..msg.chat_id_) or 'false')
-.."\n*-›* المغادره » "..(redis:get(aian917..'lock_leftgroup'..msg.chat_id_) or 'false')
-.."\n*-›* الحظر » "..(redis:get(aian917..'lock_KickBan'..msg.chat_id_) or 'false')
-.."\n*-›* الحمايه » "..(redis:get(aian917..'antiedit'..msg.chat_id_) or 'false')
-.."\n*-›* التاك للكل » "..(redis:get(aian917..'lock_takkl'..msg.chat_id_) or 'false')
-.."\n*-›* الايدي بالصوره » "..(redis:get(aian917..'idphoto'..msg.chat_id_) or 'false')
-.."\n*-›* التحقق » "..(redis:get(aian917.."lock_check"..msg.chat_id_) or 'false')
-.."\n*-›* التنظيف التلقائي » "..(redis:get(aian917.."lock_cleaner"..msg.chat_id_) or 'false')
-.."\n*-›* ردود السورس » "..(redis:get(aian917.."lock_rdodSource"..msg.chat_id_) or 'false')
+.."\n*️-›* الترحيب - "..(redis:get(aian917..'welcome:get'..msg.chat_id_) or 'false')
+.."\n*-›*  الردود - "..(redis:get(aian917..'replay'..msg.chat_id_) or 'false')
+.."\n*-›*  التحذير - "..(redis:get(aian917..'lock_woring'..msg.chat_id_) or 'false')
+.."\n*-›* الايدي - "..(redis:get(aian917..'lock_id'..msg.chat_id_) or 'false')
+.."\n*-›* الرابط - "..(redis:get(aian917..'lock_linkk'..msg.chat_id_) or 'false')
+.."\n*-›* المغادره - "..(redis:get(aian917..'lock_leftgroup'..msg.chat_id_) or 'false')
+.."\n*-›* الحظر - "..(redis:get(aian917..'lock_KickBan'..msg.chat_id_) or 'false')
+.."\n*-›* الحمايه - "..(redis:get(aian917..'antiedit'..msg.chat_id_) or 'false')
+.."\n*-›* المنشن للكل - "..(redis:get(aian917..'lock_takkl'..msg.chat_id_) or 'false')
+.."\n*-›* الايدي بالصوره - "..(redis:get(aian917..'idphoto'..msg.chat_id_) or 'false')
+.."\n*-›* التحقق - "..(redis:get(aian917.."lock_check"..msg.chat_id_) or 'false')
+.."\n*-›* التنظيف التلقائي - "..(redis:get(aian917.."lock_cleaner"..msg.chat_id_) or 'false')
+.."\n*-›* ردود السورس - "..(redis:get(aian917.."lock_rdodSource"..msg.chat_id_) or 'false')
 list_settings = list_settings:gsub('true', '{ مقفول }')
 list_settings = list_settings:gsub('false', '{ مفتوح }')
 eueuf = eueuf:gsub('true', '{ مفعل }')
@@ -2069,23 +2069,23 @@ end
 
 function settings(msg)
 list_settings = "-›` اعدادات المجموعه :` "
-.."\n\n*#️-›* التاك » "..(redis:get(aian917..'lock_tag'..msg.chat_id_) or 'false')
-.."\n*-›* المعرفات » "..(redis:get(aian917..'lock_username'..msg.chat_id_) or 'false')
-.."\n*-›* التعديل » "..(redis:get(aian917..'lock_edit'..msg.chat_id_) or 'false')
-.."\n*-›* الروابط » "..(redis:get(aian917..'lock_link'..msg.chat_id_) or 'false')
-.."\n\n*-›* التكرار » "..(redis:get(aian917..'lock_flood'..msg.chat_id_) or 'false')
-.."\n*-›* الكلايش » "..(redis:get(aian917..'lock_spam'..msg.chat_id_) or 'false')
-.."\n\n*-›* الويب » "..(redis:get(aian917..'lock_webpage'..msg.chat_id_) or 'false')
-.."\n*️-›* الماركدوان » "..(redis:get(aian917..'lock_markdown'..msg.chat_id_) or 'false')
-.."\n*-›* البوتات بالطرد » "..(redis:get(aian917..'lock_bots_by_kick'..msg.chat_id_) or 'false')
-.."\n*-›* البوتات » "..(redis:get(aian917..'lock_bots'..msg.chat_id_) or 'false')
-.."\n*-›* عدد التكرار » "..(redis:get(aian917..'num_msg_max'..msg.chat_id_) or 'false')
+.."\n\n*#️-›* المنشن - "..(redis:get(aian917..'lock_tag'..msg.chat_id_) or 'false')
+.."\n*-›* المعرفات - "..(redis:get(aian917..'lock_username'..msg.chat_id_) or 'false')
+.."\n*-›* التعديل - "..(redis:get(aian917..'lock_edit'..msg.chat_id_) or 'false')
+.."\n*-›* الروابط - "..(redis:get(aian917..'lock_link'..msg.chat_id_) or 'false')
+.."\n\n*-›* التكرار - "..(redis:get(aian917..'lock_flood'..msg.chat_id_) or 'false')
+.."\n*-›* الكلايش - "..(redis:get(aian917..'lock_spam'..msg.chat_id_) or 'false')
+.."\n\n*-›* الويب - "..(redis:get(aian917..'lock_webpage'..msg.chat_id_) or 'false')
+.."\n*️-›* الماركدوان - "..(redis:get(aian917..'lock_markdown'..msg.chat_id_) or 'false')
+.."\n*-›* البوتات بالطرد - "..(redis:get(aian917..'lock_bots_by_kick'..msg.chat_id_) or 'false')
+.."\n*-›* البوتات - "..(redis:get(aian917..'lock_bots'..msg.chat_id_) or 'false')
+.."\n*-›* عدد التكرار - "..(redis:get(aian917..'num_msg_max'..msg.chat_id_) or 'false')
 .."\n\n*-›*` اعدادات التقـييد :`\n"
-.."\n*-›* التقييد بالتوجيه » "..(redis:get(aian917..':tqeed_fwd:'..msg.chat_id_) or 'false')
-.."\n*-›* التقييد بالصور » "..(redis:get(aian917..':tqeed_photo:'..msg.chat_id_) or 'false')
-.."\n*-›* التقييد بالروابط » "..(redis:get(aian917..':tqeed_link:'..msg.chat_id_) or 'false')
-.."\n*-›* التقييد بالمتحركه » "..(redis:get(aian917..':tqeed_gif:'..msg.chat_id_) or 'false')
-.."\n*-›* التقييد الفيديو » "..(redis:get(aian917..':tqeed_video:'..msg.chat_id_) or 'false')
+.."\n*-›* التقييد بالتوجيه - "..(redis:get(aian917..':tqeed_fwd:'..msg.chat_id_) or 'false')
+.."\n*-›* التقييد بالصور - "..(redis:get(aian917..':tqeed_photo:'..msg.chat_id_) or 'false')
+.."\n*-›* التقييد بالروابط - "..(redis:get(aian917..':tqeed_link:'..msg.chat_id_) or 'false')
+.."\n*-›* التقييد بالمتحركه - "..(redis:get(aian917..':tqeed_gif:'..msg.chat_id_) or 'false')
+.."\n*-›* التقييد الفيديو - "..(redis:get(aian917..':tqeed_video:'..msg.chat_id_) or 'false')
 list_settings = list_settings:gsub('true', '{ مقفول }')
 list_settings = list_settings:gsub('false', '{ مفتوح }')
 return sendMsg(msg.chat_id_, msg.id_,'\n'..list_settings..'\n')
@@ -2093,21 +2093,21 @@ end
 
 function media(msg)
 list_settings = "*-›*` اعدادات الوسائط:`\n"
-.."\n*-›* المتحركه » "..(redis:get(aian917..'mute_gif'..msg.chat_id_) or 'false')
-.."\n*-›* الدردشه » "..(redis:get(aian917..'mute_text'..msg.chat_id_) or 'false')
-.."\n*️-›* الانلاين » "..(redis:get(aian917..'mute_inline'..msg.chat_id_) or 'false')
-.."\n*-›* الالعاب » "..(redis:get(aian917..'mute_game'..msg.chat_id_) or 'false')
-.."\n*-›* الصور » "..(redis:get(aian917..'mute_photo'..msg.chat_id_) or 'false')
-.."\n*-›* الفيديو » "..(redis:get(aian917..'mute_video'..msg.chat_id_) or 'false')
-.."\n*-›* الصوت » "..(redis:get(aian917..'mute_audio'..msg.chat_id_) or 'false')
-.."\n\n*-›* البصمات » "..(redis:get(aian917..'mute_voice'..msg.chat_id_) or 'false')
-.."\n*-›* الملصقات » "..(redis:get(aian917..'mute_sticker'..msg.chat_id_) or 'false')
-.."\n*-›* الجهات » "..(redis:get(aian917..'mute_contact'..msg.chat_id_) or 'false')
-.."\n*-›* التوجيه » "..(redis:get(aian917..'mute_forward'..msg.chat_id_) or 'false')
-.."\n*-›* الموقع » "..(redis:get(aian917..'mute_location'..msg.chat_id_) or 'false')
-.."\n*-›* الملفات » "..(redis:get(aian917..'mute_document'..msg.chat_id_) or 'false')
-.."\n*-›* الاشعارات » "..(redis:get(aian917..'mute_tgservice'..msg.chat_id_) or 'false')
-.."\n*-›* الكيبورد » "..(redis:get(aian917..'mute_keyboard'..msg.chat_id_) or 'false')
+.."\n*-›* المتحركه - "..(redis:get(aian917..'mute_gif'..msg.chat_id_) or 'false')
+.."\n*-›* الدردشه - "..(redis:get(aian917..'mute_text'..msg.chat_id_) or 'false')
+.."\n*️-›* الانلاين - "..(redis:get(aian917..'mute_inline'..msg.chat_id_) or 'false')
+.."\n*-›* الالعاب - "..(redis:get(aian917..'mute_game'..msg.chat_id_) or 'false')
+.."\n*-›* الصور - "..(redis:get(aian917..'mute_photo'..msg.chat_id_) or 'false')
+.."\n*-›* الفيديو - "..(redis:get(aian917..'mute_video'..msg.chat_id_) or 'false')
+.."\n*-›* الصوت - "..(redis:get(aian917..'mute_audio'..msg.chat_id_) or 'false')
+.."\n\n*-›* البصمات - "..(redis:get(aian917..'mute_voice'..msg.chat_id_) or 'false')
+.."\n*-›* الملصقات - "..(redis:get(aian917..'mute_sticker'..msg.chat_id_) or 'false')
+.."\n*-›* الجهات - "..(redis:get(aian917..'mute_contact'..msg.chat_id_) or 'false')
+.."\n*-›* التوجيه - "..(redis:get(aian917..'mute_forward'..msg.chat_id_) or 'false')
+.."\n*-›* الموقع - "..(redis:get(aian917..'mute_location'..msg.chat_id_) or 'false')
+.."\n*-›* الملفات - "..(redis:get(aian917..'mute_document'..msg.chat_id_) or 'false')
+.."\n*-›* الاشعارات - "..(redis:get(aian917..'mute_tgservice'..msg.chat_id_) or 'false')
+.."\n*-›* الكيبورد - "..(redis:get(aian917..'mute_keyboard'..msg.chat_id_) or 'false')
 list_settings = list_settings:gsub('true', '{ مقفول }')
 list_settings = list_settings:gsub('false', '{ مفتوح }')
 return sendMsg(msg.chat_id_,msg.id_,'\n'..list_settings..'\n')
