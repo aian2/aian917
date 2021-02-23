@@ -1254,7 +1254,7 @@ if MsgText[1] == "قفل الانلاين" 		then return mute_inline(msg) end
 if MsgText[1] == "قفل الالعاب" 		then return mute_game(msg) end
 if MsgText[1] == "قفل الكيبورد" 	then return mute_keyboard(msg) end
 if MsgText[1] == "قفل الروابط" 		then return lock_link(msg) end
-if MsgText[1] == "قفل التاك" 		then return lock_tag(msg) end
+if MsgText[1] == "قفل المنشن" 		then return lock_tag(msg) end
 if MsgText[1] == "قفل المعرفات" 	then return lock_username(msg) end
 if MsgText[1] == "قفل التعديل" 		then return lock_edit(msg) end
 if MsgText[1] == "قفل الكلايش" 		then return lock_spam(msg) end
@@ -1294,7 +1294,7 @@ if MsgText[1] == "فتح الانلاين" 		then return unmute_inline(msg) 	end
 if MsgText[1] == "فتح الالعاب" 		then return unmute_game(msg) 	end
 if MsgText[1] == "فتح الكيبورد" 	then return unmute_keyboard(msg) end
 if MsgText[1] == "فتح الروابط" 		then return unlock_link(msg) 	end
-if MsgText[1] == "فتح التاك" 		then return unlock_tag(msg) 	end
+if MsgText[1] == "فتح المنشن" 		then return unlock_tag(msg) 	end
 if MsgText[1] == "فتح المعرفات" 	then return unlock_username(msg) end
 if MsgText[1] == "فتح التعديل" 		then return unlock_edit(msg) 	end
 if MsgText[1] == "فتح الكلايش" 		then return unlock_spam(msg) 	end
@@ -1586,7 +1586,7 @@ redis:setex(aian917..'about:witting'..msg.sender_user_id_,300,true)
 return "-› حسننا عزيزي  \n-› الان ارسل الوصف  للمجموعه\n" 
 end
 
-if MsgText[1] == "تاك للكل" then 
+if MsgText[1] == "منشن" then 
 if not msg.Admin then return "-› هذا الامر يخص ( Legend , Staff , المنشئ , المدير ) فقط ." end
 if not redis:get(aian917.."lock_takkl"..msg.chat_id_) then  return "-› الامر معطل من قبل الادراة" end 
 return TagAll(msg) 
@@ -2019,7 +2019,7 @@ if MsgText[1] == "تفعيل الحمايه" 	then return unlock_AntiEdit(msg) e
 if MsgText[1] == "تفعيل المغادره" 	then return unlock_leftgroup(msg) end 
 if MsgText[1] == "تفعيل الحظر" 	then return unlock_KickBan(msg) end 
 if MsgText[1] == "تفعيل الرابط" 	then return unlock_linkk(msg) end 
-if MsgText[1] == "تفعيل تاك للكل" 	then return unlock_takkl(msg) end 
+if MsgText[1] == "تفعيل منشن" 	then return unlock_takkl(msg) end 
 if MsgText[1] == "تفعيل التحقق" 		then return unlock_check(msg) end 
 if MsgText[1] == "تفعيل التنظيف التلقائي" 		then return unlock_cleaner(msg) end 
 if MsgText[1] == "تفعيل ردود السورس" 		then return unlock_rdodSource(msg) end 
@@ -2034,7 +2034,7 @@ if MsgText[1] == "تعطيل الحمايه" 	then return lock_AntiEdit(msg) end
 if MsgText[1] == "تعطيل المغادره" 	then return lock_leftgroup(msg) end 
 if MsgText[1] == "تعطيل الحظر" 	then return lock_KickBan(msg) end 
 if MsgText[1] == "تعطيل الرابط" 	then return lock_linkk(msg) end 
-if MsgText[1] == "تعطيل تاك للكل" 	then return lock_takkl(msg) end 
+if MsgText[1] == "تعطيل منشن" 	then return lock_takkl(msg) end 
 if MsgText[1] == "تعطيل التحقق" 		then return lock_check(msg) end 
 if MsgText[1] == "تعطيل التنظيف التلقائي" 		then return lock_cleaner(msg) end 
 if MsgText[1] == "تعطيل ردود السورس" 		then return lock_rdodSource(msg) end 
@@ -3408,7 +3408,7 @@ local text = [[ ☑️ اهلا بك في قائمة الحماية
 
 • قفل - فتح الدردشه 
 • قفل - فتح الروابط 
-• قفل - فتح التاك 
+• قفل - فتح المنشن 
 • قفل - فتح البوتات 
 • ️قفل - فتح المعرفات 
 • قفل - فتح البوتات بالطرد 
@@ -3445,7 +3445,7 @@ local text = [[ ☑️ اهلا بك في قائمة الحماية
 • تفعيل - تعطيل المغادره
 • تفعيل - تعطيل الحظر
 • تفعيل - تعطيل الحمايه
-• تفعيل - تعطيل تاك للكل
+• تفعيل - تعطيل منشن
 • تفعيل - تعطيل الايدي بالصوره
 • تفعيل - تعطيل التحقق 
 • تفعيل - تعطيل ردود السورس 
@@ -4888,7 +4888,7 @@ end
 if redis:get(aian917..'lock_woring'..msg.chat_id_) then
 GetUserID(msg.sender_user_id_,function(arg,data)
 if data.username_ then USERNAME = '@'..data.username_ else USERNAME = FlterName(data) end
-SendMention(msg.chat_id_,data.id_,msg.id_,"-› العضو » "..USERNAME.."\n-› ممنوع ارسال التاك  \n",12,utf8.len(USERNAME)) 
+SendMention(msg.chat_id_,data.id_,msg.id_,"-› العضو » "..USERNAME.."\n-› ممنوع ارسال المنشن  \n",12,utf8.len(USERNAME)) 
 end,nil)
 end
 end)
@@ -5186,7 +5186,7 @@ end
 if redis:get(aian917..'lock_woring'..msg.chat_id_) then
 GetUserID(msg.sender_user_id_,function(arg,data)
 if data.username_ then USERNAME = '@'..data.username_ else USERNAME = FlterName(data) end
-SendMention(msg.chat_id_,data.id_,msg.id_,"-› العضو » "..USERNAME.."\n-› عذرا ممنوع ارسال التاك او المعرف  \n",12,utf8.len(USERNAME))
+SendMention(msg.chat_id_,data.id_,msg.id_,"-› العضو » "..USERNAME.."\n-› عذرا ممنوع ارسال المنشن او المعرف  \n",12,utf8.len(USERNAME))
 end,nil)
 end 
 end)
@@ -5458,7 +5458,7 @@ aian917 = {
 "^([dD][pP]) ([%a%d_]+.lua)$", 
 
 
-"^(تاك للكل)$",
+"^(منشن)$",
 "^(تنزيل الكل)$",
 "^(تقييد)$",
 "^(فك التقييد)$",
@@ -5683,7 +5683,7 @@ aian917 = {
 "^(قفل الالعاب)$",
 "^(قفل الكيبورد)$",
 "^(قفل الروابط)$",
-"^(قفل التاك)$",
+"^(قفل المنشن)$",
 "^(قفل المعرفات)$",
 "^(قفل التعديل)$",
 "^(قفل الكلايش)$",
@@ -5718,7 +5718,7 @@ aian917 = {
 "^(فتح الالعاب)$",
 "^(فتح الكيبورد)$",
 "^(فتح الروابط)$",
-"^(فتح التاك)$",
+"^(فتح المنشن)$",
 "^(فتح المعرفات)$",
 "^(فتح التعديل)$",
 "^(فتح الكلايش)$",
@@ -5745,7 +5745,7 @@ aian917 = {
 "^(تعطيل تعيين الايدي ️)$",
 "^(تعطيل الحظر)$",
 "^(تعطيل الرابط)$",
-"^(تعطيل تاك للكل)$",
+"^(تعطيل منشن)$",
 "^(تعطيل التحقق)$",
 "^(تفعيل الردود)$",
 "^(تفعيل الاذاعه)$",
@@ -5760,7 +5760,7 @@ aian917 = {
 "^(تفعيل تعيين الايدي )$",
 "^(تفعيل الحظر)$",
 "^(تفعيل الرابط)$",
-"^(تفعيل تاك للكل)$",
+"^(تفعيل منشن)$",
 "^(تفعيل التحقق)$",
 "^(تفعيل البوت خدمي)$",
 "^(تفعيل البوت خدمي )$",
